@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:kafka="http://ns.tibco.com/bw/sharedresource/kafka" xmi:id="_mmEkwB5SEemIt_kmUs_tNw" name="esb-kafka-poc.KafkaConnectionResource" type="kafka:KafkaConnection">
+  <jndi:configuration xsi:type="kafka:KafkaConnection" xmi:id="_mmHBAB5SEemIt_kmUs_tNw" bootstrapServers="18.202.226.158:9092,18.202.226.158:9092" reconnectBackoffMs="50" retryBackoffMs="100" requestTimeout="40000" metadataMaxAge="300000" Authentication="true" AuthenticationType="Simple Username &amp; Password (PLAIN)" AuthUsername="user" AuthPassword="#!nK24pqyJrPSaTskv3GCD81QtF/3qArmHJU6pm7VZvYZqGA/uBuWIhQ=="/>
+</jndi:namedResource>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_FQvRYB5KEemIt_kmUs_tNw" targetNamespace="http://tns.tibco.com/bw/composite/esb-kafka-poc" name="esb-kafka-poc" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_w7jkkHDVEem26tHc3vxD_A" name="resource" promote="ComponentProcess/resource">
+    <sca:interface.wsdl xmi:id="_w7q5UHDVEem26tHc3vxD_A" interface="http://xmlns.example.com/20190122143154PLT#wsdl.interface(resource)" scaext:wsdlLocation="../Processes/esb-kafka-poc/SendMessage.bwp"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_w74UsHDVEem26tHc3vxD_A" name="RestService" path="/resource" docBasePath="http://localhost:7777/esb-kafka-poc" docResourcePath="Resource" basePath="/" connector="esb-kafka-poc.Resource" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/esb-kafka-poc.SendMessage-Resource.json">
+      <operation xmi:id="_w7_CYHDVEem26tHc3vxD_A" operationName="post" nickname="post-resource" httpMethod="POST" responseStyle="element">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_w89SwHDVEem26tHc3vxD_A"/>
+      <advancedConfig xmi:id="_w74UsXDVEem26tHc3vxD_A" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_w7_CYXDVEem26tHc3vxD_A" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_FozzIB5KEemIt_kmUs_tNw" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Fo4roB5KEemIt_kmUs_tNw" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Fo7H4B5KEemIt_kmUs_tNw" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_Fo-LMB5KEemIt_kmUs_tNw" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_FpAncB5KEemIt_kmUs_tNw" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_FpDqwB5KEemIt_kmUs_tNw" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_FpGHAB5KEemIt_kmUs_tNw" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:component xmi:id="_FYVuMB5KEemIt_kmUs_tNw" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_FYVuMR5KEemIt_kmUs_tNw" processName="esb-kafka-poc.SendMessage"/>
+    <sca:service xmi:id="_w7esEHDVEem26tHc3vxD_A" name="resource">
+      <sca:interface.wsdl xmi:id="_w7ghQHDVEem26tHc3vxD_A" interface="http://xmlns.example.com/20190122143154PLT#wsdl.interface(resource)" scaext:wsdlLocation="../Processes/esb-kafka-poc/SendMessage.bwp"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_-_ps0B5UEemIt_kmUs_tNw" name="ComponentGetMessage" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_-_ps0R5UEemIt_kmUs_tNw" processName="esb-kafka-poc.ReceiveMessage"/>
+  </sca:component>
+</sca:composite>
