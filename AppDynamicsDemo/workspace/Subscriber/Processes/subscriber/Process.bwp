@@ -7,6 +7,7 @@
     xmlns:ns="http://www.tibco.com/pe/EngineTypes"
     xmlns:ns0="http://tns.tibco.com/bw/ftl/subscriber/message"
     xmlns:ns1="http://www.tibco.com/pe/WriteToLogActivitySchema"
+    xmlns:ns2="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922"
     xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
@@ -172,10 +173,29 @@
             </complexType>
             <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
         </schema>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/WriteToLogActivitySchema"
+            xmlns:tns="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType name="LogParametersType">
+                <xs:sequence>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="msgCode" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="loggerName" type="xs:string"/>
+                    <xs:element form="unqualified" minOccurs="0"
+                        name="logLevel" type="xs:string"/>
+                    <xs:element form="unqualified" name="message" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="ActivityInput" type="tns:LogParametersType"/>
+        </xs:schema>
         <schema attributeFormDefault="unqualified"
             elementFormDefault="unqualified"
-            targetNamespace="http://tns.tibco.com/bw/ftl/subscriber/message"
-            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/ftl/subscriber/message">
+            targetNamespace="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://tns.tibco.com/bw/ftl/message/1608133490833" xmlns:tns="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922">
+            <import namespace="http://tns.tibco.com/bw/ftl/message/1608133490833"/>
             <complexType name="MetadataType">
                 <sequence>
                     <!--element name="eFTLRequest" type="boolean" minOccurs="0"/-->
@@ -215,7 +235,7 @@
                 <complexType>
                     <sequence>
                         <element minOccurs="0" name="Metadata" type="tns:MetadataType"/>
-                        <element minOccurs="0" name="Message" type="anyType"/>
+                        <element minOccurs="0" name="Message" type="Q1:FTLMessageType"/>
                     </sequence>
                 </complexType>
             </element>
@@ -228,23 +248,6 @@
                 </complexType>
             </element>
         </schema>
-        <xs:schema attributeFormDefault="unqualified"
-            elementFormDefault="qualified"
-            targetNamespace="http://www.tibco.com/pe/WriteToLogActivitySchema"
-            xmlns:tns="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-            <xs:complexType name="LogParametersType">
-                <xs:sequence>
-                    <xs:element form="unqualified" minOccurs="0"
-                        name="msgCode" type="xs:string"/>
-                    <xs:element form="unqualified" minOccurs="0"
-                        name="loggerName" type="xs:string"/>
-                    <xs:element form="unqualified" minOccurs="0"
-                        name="logLevel" type="xs:string"/>
-                    <xs:element form="unqualified" name="message" type="xs:string"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:element name="ActivityInput" type="tns:LogParametersType"/>
-        </xs:schema>
     </tibex:Types>
     <tibex:ProcessInfo callable="false" createdBy="joshuamoesa"
         createdOn="Wed Dec 16 16:13:15 CET 2020" description=""
@@ -517,11 +520,11 @@
         <tibex:namespaceItem
             namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns"/>
     </tibex:NamespaceRegistry>
+    <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/ftl/message/1608133490833"/>
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
             name="_processContext" sca-bpel:internal="true"/>
-        <bpws:variable element="ns0:KeyedOpaqueMessage"
-            name="FTLSubscriber" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:CustomMessage" name="FTLSubscriber" sca-bpel:internal="true"/>
         <bpws:variable name="ftlProperty" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             sca-bpel:sharedResourceType="{http://ns.tibco.com/bw/sharedresource/ftl}FTLRealmServerConnection" type="xsd:string">
@@ -599,7 +602,8 @@
                             activityTypeID="bw.ftl.subscriber"
                             xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
                             xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
-                            xmlns:ftl="http://ns.tibco.com/bw/palette/ftl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            xmlns:ftl="http://ns.tibco.com/bw/palette/ftl"
+                            xmlns:message_1608133490833="http://tns.tibco.com/bw/ftl/message/1608133490833" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                             <attributeBindings
                                 bindingType="moduleProperty"
                                 eAttributeName="endpoint" processProperty="FTL_ENDPOINT"/>
@@ -607,8 +611,9 @@
                                 <properties name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/ftl#//FTLSubscriber"/>
                                     <value acknowledgementMode="auto"
-                                    format="keyed_opaque"
+                                    format="custom"
                                     ftlRealmServerConnection="ftlProperty"
+                                    outputElementQName="message_1608133490833:FTLMessageType"
                                     queueDispatcherThreads="1"
                                     queueOverflowDiscardPolicy="none"
                                     queueSize="-1"
@@ -628,7 +633,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FTLSubscriber&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Received FTL message containing a message: &amp;quot;, $FTLSubscriber/Message/_key)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FTLSubscriber&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;(&amp;quot;Received FTL message containing a message: &amp;quot;, $FTLSubscriber/Message/data)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
