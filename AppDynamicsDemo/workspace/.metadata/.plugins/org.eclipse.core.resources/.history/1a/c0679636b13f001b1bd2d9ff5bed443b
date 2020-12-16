@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config:ProjectConfig xmlns:config="http://www.tibco.com/XPD/projectConfig">
+  <projectDetails id="com.example.subscriber">
+    <globalDestinations/>
+    <edition>bwcf</edition>
+  </projectDetails>
+  <config:specialFolders/>
+</config:ProjectConfig>

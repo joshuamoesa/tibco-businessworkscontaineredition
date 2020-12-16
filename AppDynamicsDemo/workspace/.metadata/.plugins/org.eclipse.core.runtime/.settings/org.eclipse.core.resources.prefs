@@ -1,4 +1,4 @@
-description.buildorder=Publisher/Publisher.application
+description.buildorder=Publisher/Subscriber/Subscriber.application/Publisher.application
 description.defaultbuildorder=false
 eclipse.preferences.version=1
 version=1
