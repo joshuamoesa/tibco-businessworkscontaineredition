@@ -1,0 +1,3 @@
+1608119426219	Rename Module Configuration Property from 'Property' to 'FTL_ENDPOINT'
+1608119773954	Rename Module Configuration Property from 'Property' to 'FTL_REALM_SERVER_URL'
+1608122369451	Delete Module Configuration Property 'FTL_CLIENT_LABEL1'

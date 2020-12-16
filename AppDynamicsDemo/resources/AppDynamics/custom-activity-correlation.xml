@@ -1,0 +1,55 @@
+<activities>
+    <producer do-not-resolve="true">
+        <instrumentation>
+            <class-name>com.tibco.bw.palette.ftl.runtime.publisher.FTLPublisherActivity</class-name>
+            <method-name>execute</method-name>
+            <match-type>MATCHES_CLASS</match-type>
+        </instrumentation>
+        <identifiers>
+            <identifier name="ENDPOINT">
+                <data-gatherer-type>INVOKED</data-gatherer-type>
+                <getter-chain>ftlPublisherConfig.getEndpoint()</getter-chain>
+                <transformer-type>GETTER_METHODS</transformer-type>
+            </identifier>
+        </identifiers>
+        <correlation>
+            <instrumentation>
+                <class-name>com.tibco.ftl.Publisher</class-name>
+                <method-name>send</method-name>
+                <match-type>IMPLEMENTS_INTERFACE</match-type>
+                <param-types>com.tibco.ftl.Message</param-types>
+            </instrumentation>
+            <payload-pointer>
+                <data-gatherer-type>POSITION</data-gatherer-type>
+                <position>0</position>
+                <getter-chain>this</getter-chain>
+                <transformer-type>GETTER_METHODS</transformer-type>
+            </payload-pointer>
+            <payload-operation>
+                <access-type>method</access-type>
+                <access-method>setString</access-method>
+                <param-types>java.lang.String,java.lang.String</param-types>
+            </payload-operation>
+        </correlation>
+    </producer>
+    <consumer identify-transaction="true">
+        <instrumentation>
+            <class-name>com.tibco.bw.palette.ftl.runtime.subscriber.FTLSubscriberListener</class-name>
+            <method-name>process</method-name>
+            <match-type>MATCHES_CLASS</match-type>
+        </instrumentation>
+        <correlation>
+            <payload-pointer>
+                <data-gatherer-type>POSITION</data-gatherer-type>
+                <position>0</position>
+                <getter-chain>this</getter-chain>
+                <transformer-type>GETTER_METHODS</transformer-type>
+            </payload-pointer>
+            <payload-operation>
+                <access-type>method</access-type>
+                <access-method>getString</access-method>
+                <param-types>java.lang.String</param-types>
+            </payload-operation>
+        </correlation>
+    </consumer>
+</activities>

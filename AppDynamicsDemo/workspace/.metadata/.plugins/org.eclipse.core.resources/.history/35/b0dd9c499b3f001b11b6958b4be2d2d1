@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ftlsr="http://ns.tibco.com/bw/sharedresource/ftl" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmi:id="_j2QKoD-UEeuCfONZhFVm1w" name="publisher.FTLRealmServerConnection" type="ftlsr:FTLRealmServerConnection">
+  <jndi:configuration xsi:type="ftlsr:FTLRealmServerConnection" xmi:id="_j2RYwD-UEeuCfONZhFVm1w" realmServerURL="Property ">
+    <substitutionBindings xmi:id="_nKUuAD-VEeuCfONZhFVm1w" template="realmServerURL" propName="FTL_REALM_SERVER_URL"/>
+    <substitutionBindings xmi:id="_IwR-sD-bEeuCfONZhFVm1w" template="secondaryRealmServerURL" propName="FTL_REALM_SERVER_URL"/>
+  </jndi:configuration>
+</jndi:namedResource>
