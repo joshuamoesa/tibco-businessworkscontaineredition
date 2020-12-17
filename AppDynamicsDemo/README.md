@@ -1,8 +1,15 @@
 # AppDynamicsDemo
 
-This README.md contains additional notes that complement the howto described in [1].
+This README.md contains additional notes that complement the AppDynamics article 'Howto instrument and correlate TIBCO FTL exit calls in TIBCO'[1].
 
-Make sure you have FTL installed and configured.  
+<img src="https://github.com/joshuamoesa/tibco-businessworkscontaineredition/blob/master/AppDynamicsDemo/resources/images/screenshot_appdynamics_endresult.png" width="500">
+
+## Prerequisites (macOS)
+
+- Docker Desktop Community 2.4.0 [Docker](https://www.docker.com/products/docker-desktop)
+- TIBCO FTL Enterprise 5.4 [TIBCO download](https://download.tibco.com)
+- TIBCO BWCE 2.5.1 [TIBCO download](https://download.tibco.com)
+- AppDynamics javaagent [AppDynamics download](https://download.appdynamics.com/download/#version=&apm=jvm%2Cjava-agent-api%2Copentracer%2Cjava-jdk8&os=linux%2Cosx%2Cwindows&platform_admin_os=linux%2Cosx%2Cwindows&appdynamics_cluster_os=linux&events=linuxwindows&eum=linux%2Cwindows%2Cgeoserver%2Cgeodata%2Csynthetic%2Csynthetic-server&page=1&apm_os=windows%2Clinux%2Calpine-linux%2Cosx%2Csolaris%2Csolaris-sparc%2Caix)
 
 ## Create the TIBCO BWCE base image
 
@@ -27,7 +34,7 @@ This is where I put my stuff:
 
 #### AppServerAgent ZIP
 
-AppServerAgent-1.8-20.8.0.30686.zip in /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/monitor-agents
+AppServerAgent-1.8-20.8.0.30686.zip (use your own distribution) in /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/monitor-agents
 
 #### Replace default custom-activity-correlation.xml config
 
