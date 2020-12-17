@@ -25,7 +25,7 @@ Make sure FTL software is included in the correct TIBCO installation folders on 
 
 This is where I put my stuff:
 
-- FTL JAR-files folder (ni ZIP but folder /com.tibco.ftl_5.4.0.009) in
+- FTL JAR-files folder (no ZIP but folder /com.tibco.ftl_5.4.0.009) in
 /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/jars
 - ftl_linux_client_libs.zip in /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/lib
 - TIB_bwpluginftl_6.4.4_v6_bwce-runtime.zip in /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/plugins
