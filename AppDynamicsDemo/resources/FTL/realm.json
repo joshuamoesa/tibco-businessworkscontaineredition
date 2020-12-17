@@ -1,0 +1,3057 @@
+{
+  "name": "_default_realm",
+  "id": 16045,
+  "description": "",
+  "version": 1,
+  "realm_server_version": "5.4.0 V9",
+  "realm_uuid": "ee3fdc64-de52-40bf-8522-980b22bf70de",
+  "server_uuid": "cefa8396-e261-4c50-b310-0c36272c73ac",
+  "server_time": "",
+  "properties": {
+    "client_monitor_sample_interval": 60,
+    "client_server_heartbeat": 60,
+    "client_timeout_server": 180,
+    "manage_all_formats": false,
+    "monitor_matching_statistics": false,
+    "openssl_cipher_suites": "ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384",
+    "openssl_cipher_suites_custom": "",
+    "openssl_cipher_suites_selection": "defaults",
+    "openssl_context_options": "0x17134000",
+    "openssl_context_options_custom": "",
+    "openssl_context_options_selection": "defaults",
+    "realm_is_secure": false,
+    "server_client_heartbeat": 60,
+    "server_timeout_client": 3600,
+    "warn_about_insecure_transports": false,
+    "max_deployment_history": 25,
+    "user_friendly_name": "localhost:8080",
+    "com.tibco.ftl.client.subscriber.persistence.retry.duration": -1,
+    "com.tibco.ftl.client.publisher.persistence.retry.duration": -1,
+    "com.tibco.ftl.client.map.persistence.retry.duration": -1
+  },
+  "applications": [
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "ECS",
+      "id": 1263,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [
+        "ECS"
+      ],
+      "endpoints": [
+        {
+          "name": "EP_ESB_ECS_STOCKSTATUS_Connect",
+          "id": 1281,
+          "store": "ST_ECS_C1_STOCKSTATUS",
+          "cluster": "ECS_C1"
+        },
+        {
+          "name": "EP_ESB_ECS_STOCKSTATUS_Listen",
+          "id": 1267,
+          "store": "ST_ECS_C1_STOCKSTATUS",
+          "cluster": "ECS_C1"
+        },
+        {
+          "name": "EP_COS_ECS_ROUTER_Connect",
+          "id": 1269,
+          "store": "ST_ECS_C1_ROUTER",
+          "cluster": "ECS_C1"
+        },
+        {
+          "name": "EP_COS_ECS_ROUTER_Listen",
+          "id": 1271,
+          "store": "ST_ECS_C1_ROUTER",
+          "cluster": "ECS_C1"
+        },
+        {
+          "name": "EP_ESB_ECS_COMMON_Connect",
+          "id": 1273,
+          "store": "ST_ECS_C1_COMMON",
+          "cluster": "ECS_C1"
+        },
+        {
+          "name": "EP_ESB_ECS_COMMON_Listen",
+          "id": 1275,
+          "store": "ST_ECS_C1_COMMON",
+          "cluster": "ECS_C1"
+        },
+        {
+          "name": "EP_ESB_ECS_IN_Connect",
+          "id": 1277,
+          "store": "ST_ECS_C1_IN",
+          "cluster": "ECS_C1"
+        },
+        {
+          "name": "EP_ESB_ECS_IN_Listen",
+          "id": 1279,
+          "store": "ST_ECS_C1_IN",
+          "cluster": "ECS_C1"
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 1265,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {
+                "template": "DUR_ECS_STOCKSTATUS"
+              },
+              "subscribers": [],
+              "list_name": "_ECS_@_default_@_EP_ESB_ECS_STOCKSTATUS_Connect",
+              "endpoint_name": "EP_ESB_ECS_STOCKSTATUS_Connect"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_ECS_STOCKSTATUS"
+              },
+              "subscribers": [],
+              "list_name": "_ECS_@_default_@_EP_ESB_ECS_STOCKSTATUS_Listen",
+              "endpoint_name": "EP_ESB_ECS_STOCKSTATUS_Listen"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_ECS_ROUTER"
+              },
+              "subscribers": [],
+              "list_name": "_ECS_@_default_@_EP_COS_ECS_ROUTER_Connect",
+              "endpoint_name": "EP_COS_ECS_ROUTER_Connect"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_ECS_ROUTER"
+              },
+              "subscribers": [],
+              "list_name": "_ECS_@_default_@_EP_COS_ECS_ROUTER_Listen",
+              "endpoint_name": "EP_COS_ECS_ROUTER_Listen"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_ECS_COMMON"
+              },
+              "subscribers": [],
+              "list_name": "_ECS_@_default_@_EP_ESB_ECS_COMMON_Connect",
+              "endpoint_name": "EP_ESB_ECS_COMMON_Connect"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_ECS_COMMON"
+              },
+              "subscribers": [],
+              "list_name": "_ECS_@_default_@_EP_ESB_ECS_COMMON_Listen",
+              "endpoint_name": "EP_ESB_ECS_COMMON_Listen"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_ECS_IN"
+              },
+              "subscribers": [],
+              "list_name": "_ECS_@_default_@_EP_ESB_ECS_IN_Connect",
+              "endpoint_name": "EP_ESB_ECS_IN_Connect"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_ECS_IN"
+              },
+              "subscribers": [],
+              "list_name": "_ECS_@_default_@_EP_ESB_ECS_IN_Listen",
+              "endpoint_name": "EP_ESB_ECS_IN_Listen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "PNP",
+      "id": 1247,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [
+        "EventMessage"
+      ],
+      "endpoints": [
+        {
+          "name": "EP_ESB_PNP_Listen",
+          "id": 1253,
+          "store": "ST_PNP",
+          "cluster": "C1"
+        },
+        {
+          "name": "EP_ESB_PNP_Connect",
+          "id": 1251,
+          "store": "ST_PNP",
+          "cluster": "C1"
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 1249,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {
+                "template": "DUR_PNP"
+              },
+              "subscribers": [],
+              "list_name": "_PNP_@_default_@_EP_ESB_PNP_Listen",
+              "endpoint_name": "EP_ESB_PNP_Listen"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_PNP"
+              },
+              "subscribers": [],
+              "list_name": "_PNP_@_default_@_EP_ESB_PNP_Connect",
+              "endpoint_name": "EP_ESB_PNP_Connect"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "SKY",
+      "id": 1291,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [],
+      "endpoints": [
+        {
+          "name": "EP_ESB_SKY_Listen",
+          "id": 1295,
+          "store": "ST_C2C_C1_SKY",
+          "cluster": "C2C_C1"
+        },
+        {
+          "name": "EP_ESB_SKY_Connect",
+          "id": 1297,
+          "store": "ST_C2C_C1_SKY",
+          "cluster": "C2C_C1"
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 1293,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {},
+              "subscribers": [],
+              "list_name": "_SKY_@_default_@_EP_ESB_SKY_Listen",
+              "endpoint_name": "EP_ESB_SKY_Listen"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_SKY"
+              },
+              "subscribers": [],
+              "list_name": "_SKY_@_default_@_EP_ESB_SKY_Connect",
+              "endpoint_name": "EP_ESB_SKY_Connect"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "_GroupClient",
+      "id": 1041,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [],
+      "endpoints": [
+        {
+          "name": "_Common",
+          "id": 1043
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 1039,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {},
+              "subscribers": [],
+              "list_name": "__GroupClient_@_default_@__Common",
+              "endpoint_name": "_Common"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "logging",
+      "id": 1027,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [
+        "Logging"
+      ],
+      "endpoints": [
+        {
+          "name": "EP_logging_trace",
+          "id": 1243,
+          "store": "logstore",
+          "cluster": "C1"
+        },
+        {
+          "name": "C_logging",
+          "id": 1245,
+          "store": "logstore",
+          "cluster": "C1"
+        },
+        {
+          "name": "EP_logging",
+          "id": 1031,
+          "store": "logstore",
+          "cluster": "C1"
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 1029,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {
+                "template": "DUR_LOG_TRACE"
+              },
+              "subscribers": [],
+              "list_name": "_logging_@_default_@_EP_logging_trace",
+              "endpoint_name": "EP_logging_trace"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_LOG"
+              },
+              "subscribers": [],
+              "list_name": "_logging_@_default_@_C_logging",
+              "endpoint_name": "C_logging"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_LOG"
+              },
+              "subscribers": [],
+              "list_name": "_logging_@_default_@_EP_logging",
+              "endpoint_name": "EP_logging"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "_GroupServer",
+      "id": 1047,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [],
+      "endpoints": [
+        {
+          "name": "_Common",
+          "id": 1049
+        }
+      ],
+      "instances": [
+        {
+          "name": "PrimaryGroupServer",
+          "id": 1051,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": "Primary"
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {},
+              "subscribers": [],
+              "list_name": "__GroupServer_@_PrimaryGroupServer_@__Common",
+              "endpoint_name": "_Common"
+            }
+          ]
+        },
+        {
+          "name": "BackupGroupServer",
+          "id": 1053,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": "Backup"
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {},
+              "subscribers": [],
+              "list_name": "__GroupServer_@_BackupGroupServer_@__Common",
+              "endpoint_name": "_Common"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "CPP",
+      "id": 1255,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [
+        "EventMessage"
+      ],
+      "endpoints": [
+        {
+          "name": "EP_ESB_CPP_Connect",
+          "id": 1261,
+          "store": "ST_C2C_C1_CPP",
+          "cluster": "C2C_C1"
+        },
+        {
+          "name": "EP_ESB_CPP_Listen",
+          "id": 1259,
+          "store": "ST_C2C_C1_CPP",
+          "cluster": "C2C_C1"
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 1257,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {
+                "template": "DUR_CPP"
+              },
+              "subscribers": [],
+              "list_name": "_CPP_@_default_@_EP_ESB_CPP_Connect",
+              "endpoint_name": "EP_ESB_CPP_Connect"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_CPP"
+              },
+              "subscribers": [],
+              "list_name": "_CPP_@_default_@_EP_ESB_CPP_Listen",
+              "endpoint_name": "EP_ESB_CPP_Listen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "default",
+      "id": 201,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [],
+      "endpoints": [
+        {
+          "name": "default",
+          "id": 202
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 203,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {},
+              "subscribers": [],
+              "list_name": "_default_@_default_@_default",
+              "endpoint_name": "default"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "_eFTL_Cluster",
+      "id": 301,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [],
+      "endpoints": [
+        {
+          "name": "eftl_cluster_facing_endpoint",
+          "id": 302
+        },
+        {
+          "name": "eftl_channel_app_facing_endpoint_channel",
+          "id": 303
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 304,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {},
+              "subscribers": [],
+              "list_name": "__eFTL_Cluster_@_default_@_eftl_cluster_facing_endpoint",
+              "endpoint_name": "eftl_cluster_facing_endpoint"
+            },
+            {
+              "dynamic_durable": {},
+              "subscribers": [],
+              "list_name": "__eFTL_Cluster_@_default_@_eftl_channel_app_facing_endpoint_channel",
+              "endpoint_name": "eftl_channel_app_facing_endpoint_channel"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "SKY_test",
+      "id": 1299,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [
+        "EventMessage"
+      ],
+      "endpoints": [
+        {
+          "name": "EP_ESB_SKY_Listen_test",
+          "id": 1305,
+          "store": "ST_SKY_test",
+          "cluster": "C1"
+        },
+        {
+          "name": "EP_ESB_SKY_Connect_test",
+          "id": 1303,
+          "store": "ST_SKY_test",
+          "cluster": "C1"
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 1301,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {},
+              "subscribers": [],
+              "list_name": "_SKY_test_@_default_@_EP_ESB_SKY_Listen_test",
+              "endpoint_name": "EP_ESB_SKY_Listen_test"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_SKY_test"
+              },
+              "subscribers": [],
+              "list_name": "_SKY_test_@_default_@_EP_ESB_SKY_Connect_test",
+              "endpoint_name": "EP_ESB_SKY_Connect_test"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "CPP_test",
+      "id": 1283,
+      "description": "",
+      "manage_all_formats": false,
+      "preload_format_names": [
+        "EventMessage"
+      ],
+      "endpoints": [
+        {
+          "name": "EP_ESB_CPP_Listen_test",
+          "id": 1287,
+          "store": "ST_CPP_test",
+          "cluster": "C1"
+        },
+        {
+          "name": "EP_ESB_CPP_Connect_test",
+          "id": 1289,
+          "store": "ST_CPP_test",
+          "cluster": "C1"
+        }
+      ],
+      "instances": [
+        {
+          "name": "default",
+          "id": 1285,
+          "description": "",
+          "matcher": {
+            "host": "",
+            "identifier": ""
+          },
+          "endpoints": [
+            {
+              "dynamic_durable": {
+                "template": "DUR_CPP_test"
+              },
+              "subscribers": [],
+              "list_name": "_CPP_test_@_default_@_EP_ESB_CPP_Listen_test",
+              "endpoint_name": "EP_ESB_CPP_Listen_test"
+            },
+            {
+              "dynamic_durable": {
+                "template": "DUR_CPP_test"
+              },
+              "subscribers": [],
+              "list_name": "_CPP_test_@_default_@_EP_ESB_CPP_Connect_test",
+              "endpoint_name": "EP_ESB_CPP_Connect_test"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "ECS_C1",
+      "id": 6051,
+      "description": "ECS persistence cluster",
+      "client_pserver_heartbeat": 2,
+      "client_timeout_pserver": 5,
+      "pserver_pserver_heartbeat": 0.5,
+      "pserver_timeout_pserver": 3,
+      "dr_enabled": false,
+      "primary_set": "Set 1",
+      "stores": [
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "ST_ECS_C1_STOCKSTATUS",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 6097,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_ECS_STOCKSTATUS",
+              "id": 6099,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_lastvalue",
+              "id": 6101,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_map",
+              "id": 6103,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_shared",
+              "id": 6105,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_standard",
+              "id": 6107,
+              "description": "",
+              "type": "standard",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        },
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "ST_ECS_C1_COMMON",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 6061,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_ECS_COMMON",
+              "id": 6063,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_lastvalue",
+              "id": 6065,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_map",
+              "id": 6067,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_shared",
+              "id": 6069,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_standard",
+              "id": 6071,
+              "description": "",
+              "type": "standard",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        },
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "ST_ECS_C1_IN",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 6073,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_ECS_IN",
+              "id": 6075,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_lastvalue",
+              "id": 6077,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_map",
+              "id": 6079,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_shared",
+              "id": 6081,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_standard",
+              "id": 6083,
+              "description": "",
+              "type": "standard",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        },
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "ST_ECS_C1_ROUTER",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 6085,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_ECS_ROUTER",
+              "id": 6091,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_lastvalue",
+              "id": 6093,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_map",
+              "id": 6095,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_shared",
+              "id": 6087,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_standard",
+              "id": 6089,
+              "description": "",
+              "type": "standard",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        }
+      ],
+      "pserver_sets": [
+        {
+          "name": "Set 1",
+          "id": 6053,
+          "description": "",
+          "role": "persist",
+          "pservers": [
+            {
+              "last_modified": "2019-04-18T11:14:07.665696+02:00",
+              "last_modified_millis": 1555578847665,
+              "last_modified_by": "anyone",
+              "name": "ECS_S11",
+              "id": 6059,
+              "description": "",
+              "weight": 10,
+              "client_transports": [
+                {
+                  "transport": {
+                    "last_modified": "0001-01-01T00:00:00Z",
+                    "last_modified_millis": 0,
+                    "last_modified_by": "",
+                    "name": "_client_pri_transport_ECS_S11",
+                    "description": "",
+                    "relationships": [],
+                    "config": {
+                      "transport_type": "dtcp",
+                      "backlog_full_wait": "0",
+                      "recv_spin_limit": "0",
+                      "backlog_size": "64mb",
+                      "port": "0",
+                      "subnet_mask": "",
+                      "virtual_name": "_client_pri_transport_ECS_S11_Set 1",
+                      "mode": "client"
+                    }
+                  },
+                  "matchers": []
+                }
+              ],
+              "cluster_transport": {
+                "transport": {
+                  "last_modified": "0001-01-01T00:00:00Z",
+                  "last_modified_millis": 0,
+                  "last_modified_by": "",
+                  "name": "_cluster_transport_ECS_S11",
+                  "description": "",
+                  "relationships": [],
+                  "config": {
+                    "transport_type": "dtcp",
+                    "backlog_full_wait": "0",
+                    "recv_spin_limit": "0",
+                    "backlog_size": "256mb",
+                    "port": "0",
+                    "subnet_mask": "",
+                    "virtual_name": "_cluster_transport_ECS_C1_Set 1",
+                    "mode": ""
+                  }
+                }
+              },
+              "dr_transport": {}
+            },
+            {
+              "last_modified": "2019-04-18T11:14:07.665696+02:00",
+              "last_modified_millis": 1555578847665,
+              "last_modified_by": "anyone",
+              "name": "ECS_S12",
+              "id": 16043,
+              "description": "",
+              "weight": 10,
+              "client_transports": [
+                {
+                  "transport": {
+                    "last_modified": "0001-01-01T00:00:00Z",
+                    "last_modified_millis": 0,
+                    "last_modified_by": "",
+                    "name": "_client_pri_transport_ECS_S12",
+                    "description": "",
+                    "relationships": [],
+                    "config": {
+                      "transport_type": "dtcp",
+                      "backlog_full_wait": "0",
+                      "recv_spin_limit": "0",
+                      "backlog_size": "64mb",
+                      "port": "0",
+                      "subnet_mask": "",
+                      "virtual_name": "_client_pri_transport_ECS_S12_Set 1",
+                      "mode": "client"
+                    }
+                  },
+                  "matchers": []
+                }
+              ],
+              "cluster_transport": {
+                "transport": {
+                  "last_modified": "0001-01-01T00:00:00Z",
+                  "last_modified_millis": 0,
+                  "last_modified_by": "",
+                  "name": "_cluster_transport_ECS_S12",
+                  "description": "",
+                  "relationships": [],
+                  "config": {
+                    "transport_type": "dtcp",
+                    "backlog_full_wait": "0",
+                    "recv_spin_limit": "0",
+                    "backlog_size": "256mb",
+                    "port": "0",
+                    "subnet_mask": "",
+                    "virtual_name": "_cluster_transport_ECS_C1_Set 1",
+                    "mode": ""
+                  }
+                }
+              },
+              "dr_transport": {}
+            },
+            {
+              "last_modified": "2019-04-18T11:14:07.665696+02:00",
+              "last_modified_millis": 1555578847665,
+              "last_modified_by": "anyone",
+              "name": "ECS_S13",
+              "id": 16041,
+              "description": "",
+              "weight": 10,
+              "client_transports": [
+                {
+                  "transport": {
+                    "last_modified": "0001-01-01T00:00:00Z",
+                    "last_modified_millis": 0,
+                    "last_modified_by": "",
+                    "name": "_client_pri_transport_ECS_S13",
+                    "description": "",
+                    "relationships": [],
+                    "config": {
+                      "transport_type": "dtcp",
+                      "backlog_full_wait": "0",
+                      "recv_spin_limit": "0",
+                      "backlog_size": "64mb",
+                      "port": "0",
+                      "subnet_mask": "",
+                      "virtual_name": "_client_pri_transport_ECS_S13_Set 1",
+                      "mode": "client"
+                    }
+                  },
+                  "matchers": []
+                }
+              ],
+              "cluster_transport": {
+                "transport": {
+                  "last_modified": "0001-01-01T00:00:00Z",
+                  "last_modified_millis": 0,
+                  "last_modified_by": "",
+                  "name": "_cluster_transport_ECS_S13",
+                  "description": "",
+                  "relationships": [],
+                  "config": {
+                    "transport_type": "dtcp",
+                    "backlog_full_wait": "0",
+                    "recv_spin_limit": "0",
+                    "backlog_size": "256mb",
+                    "port": "0",
+                    "subnet_mask": "",
+                    "virtual_name": "_cluster_transport_ECS_C1_Set 1",
+                    "mode": ""
+                  }
+                }
+              },
+              "dr_transport": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "C1",
+      "id": 1307,
+      "description": "",
+      "client_pserver_heartbeat": 2,
+      "client_timeout_pserver": 5,
+      "pserver_pserver_heartbeat": 0.5,
+      "pserver_timeout_pserver": 3,
+      "dr_enabled": false,
+      "primary_set": "Set 1",
+      "stores": [
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "ST_CPP_test",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 1337,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_CPP_test",
+              "id": 1339,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        },
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "logstore",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 1381,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_LOG",
+              "id": 1385,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "DUR_LOG_TRACE",
+              "id": 1383,
+              "description": "",
+              "type": "standard",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "message_ttl": "10",
+              "discard": "new",
+              "durable_ttl": "10"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        },
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "ST_PNP",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 1321,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_PNP",
+              "id": 1323,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_lastvalue",
+              "id": 16029,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_map",
+              "id": 16031,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_shared",
+              "id": 16033,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_standard",
+              "id": 16035,
+              "description": "",
+              "type": "standard",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        },
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "ST_SKY_test",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 1349,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_SKY_test",
+              "id": 1353,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_lastvalue",
+              "id": 1355,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_map",
+              "id": 1357,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_shared",
+              "id": 1359,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_standard",
+              "id": 1351,
+              "description": "",
+              "type": "standard",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        }
+      ],
+      "pserver_sets": [
+        {
+          "name": "Set 1",
+          "id": 1309,
+          "description": "",
+          "role": "persist",
+          "pservers": [
+            {
+              "last_modified": "2019-04-18T11:14:07.665696+02:00",
+              "last_modified_millis": 1555578847665,
+              "last_modified_by": "anyone",
+              "name": "S1",
+              "id": 1315,
+              "description": "",
+              "weight": 10,
+              "client_transports": [
+                {
+                  "transport": {
+                    "last_modified": "0001-01-01T00:00:00Z",
+                    "last_modified_millis": 0,
+                    "last_modified_by": "",
+                    "name": "_client_pri_transport_S1",
+                    "description": "",
+                    "relationships": [],
+                    "config": {
+                      "transport_type": "dtcp",
+                      "backlog_full_wait": "0",
+                      "recv_spin_limit": "0",
+                      "backlog_size": "64mb",
+                      "port": "0",
+                      "subnet_mask": "",
+                      "virtual_name": "_client_pri_transport_S1_Set 1",
+                      "mode": "client"
+                    }
+                  },
+                  "matchers": []
+                }
+              ],
+              "cluster_transport": {
+                "transport": {
+                  "last_modified": "0001-01-01T00:00:00Z",
+                  "last_modified_millis": 0,
+                  "last_modified_by": "",
+                  "name": "_cluster_transport_S1",
+                  "description": "",
+                  "relationships": [],
+                  "config": {
+                    "transport_type": "dtcp",
+                    "backlog_full_wait": "0",
+                    "recv_spin_limit": "0",
+                    "backlog_size": "256mb",
+                    "port": "0",
+                    "subnet_mask": "",
+                    "virtual_name": "_cluster_transport_C1_Set 1",
+                    "mode": ""
+                  }
+                }
+              },
+              "dr_transport": {}
+            },
+            {
+              "last_modified": "2019-04-18T11:14:07.665696+02:00",
+              "last_modified_millis": 1555578847665,
+              "last_modified_by": "anyone",
+              "name": "S2",
+              "id": 16025,
+              "description": "",
+              "weight": 10,
+              "client_transports": [
+                {
+                  "transport": {
+                    "last_modified": "0001-01-01T00:00:00Z",
+                    "last_modified_millis": 0,
+                    "last_modified_by": "",
+                    "name": "_client_pri_transport_S2",
+                    "description": "",
+                    "relationships": [],
+                    "config": {
+                      "transport_type": "dtcp",
+                      "backlog_full_wait": "0",
+                      "recv_spin_limit": "0",
+                      "backlog_size": "64mb",
+                      "port": "0",
+                      "subnet_mask": "",
+                      "virtual_name": "_client_pri_transport_S2_Set 1",
+                      "mode": "client"
+                    }
+                  },
+                  "matchers": []
+                }
+              ],
+              "cluster_transport": {
+                "transport": {
+                  "last_modified": "0001-01-01T00:00:00Z",
+                  "last_modified_millis": 0,
+                  "last_modified_by": "",
+                  "name": "_cluster_transport_S2",
+                  "description": "",
+                  "relationships": [],
+                  "config": {
+                    "transport_type": "dtcp",
+                    "backlog_full_wait": "0",
+                    "recv_spin_limit": "0",
+                    "backlog_size": "256mb",
+                    "port": "0",
+                    "subnet_mask": "",
+                    "virtual_name": "_cluster_transport_C1_Set 1",
+                    "mode": ""
+                  }
+                }
+              },
+              "dr_transport": {}
+            },
+            {
+              "last_modified": "2019-04-18T11:14:07.665696+02:00",
+              "last_modified_millis": 1555578847665,
+              "last_modified_by": "anyone",
+              "name": "S3",
+              "id": 16027,
+              "description": "",
+              "weight": 10,
+              "client_transports": [
+                {
+                  "transport": {
+                    "last_modified": "0001-01-01T00:00:00Z",
+                    "last_modified_millis": 0,
+                    "last_modified_by": "",
+                    "name": "_client_pri_transport_S3",
+                    "description": "",
+                    "relationships": [],
+                    "config": {
+                      "transport_type": "dtcp",
+                      "backlog_full_wait": "0",
+                      "recv_spin_limit": "0",
+                      "backlog_size": "64mb",
+                      "port": "0",
+                      "subnet_mask": "",
+                      "virtual_name": "_client_pri_transport_S3_Set 1",
+                      "mode": "client"
+                    }
+                  },
+                  "matchers": []
+                }
+              ],
+              "cluster_transport": {
+                "transport": {
+                  "last_modified": "0001-01-01T00:00:00Z",
+                  "last_modified_millis": 0,
+                  "last_modified_by": "",
+                  "name": "_cluster_transport_S3",
+                  "description": "",
+                  "relationships": [],
+                  "config": {
+                    "transport_type": "dtcp",
+                    "backlog_full_wait": "0",
+                    "recv_spin_limit": "0",
+                    "backlog_size": "256mb",
+                    "port": "0",
+                    "subnet_mask": "",
+                    "virtual_name": "_cluster_transport_C1_Set 1",
+                    "mode": ""
+                  }
+                }
+              },
+              "dr_transport": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "C2C_C1",
+      "id": 6025,
+      "description": "C2C persistence cluster",
+      "client_pserver_heartbeat": 2,
+      "client_timeout_pserver": 5,
+      "pserver_pserver_heartbeat": 0.5,
+      "pserver_timeout_pserver": 3,
+      "dr_enabled": false,
+      "primary_set": "Set 1",
+      "stores": [
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "ST_C2C_C1_CPP",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 6047,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_CPP",
+              "id": 6049,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        },
+        {
+          "last_modified": "2019-04-18T11:14:07.665696+02:00",
+          "last_modified_millis": 1555578847665,
+          "last_modified_by": "anyone",
+          "name": "ST_C2C_C1_SKY",
+          "bytelimit": "",
+          "publisher_settings": {
+            "mode": "store_confirm_send"
+          },
+          "dynamic_durable_limit": 0,
+          "id": 6035,
+          "description": "",
+          "durable_templates": [
+            {
+              "name": "DUR_SKY",
+              "id": 6037,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_lastvalue",
+              "id": 6039,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_map",
+              "id": 6041,
+              "description": "",
+              "type": "lastvalue",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_shared",
+              "id": 6043,
+              "description": "",
+              "type": "shared",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "prefetch": 4,
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            },
+            {
+              "name": "default_standard",
+              "id": 6045,
+              "description": "",
+              "type": "standard",
+              "ack_settings": {
+                "mode": "sync"
+              },
+              "message_ttl": "0",
+              "durable_ttl": "0"
+            }
+          ],
+          "durables": [],
+          "replicated": -1,
+          "index": []
+        }
+      ],
+      "pserver_sets": [
+        {
+          "name": "Set 1",
+          "id": 6027,
+          "description": "",
+          "role": "persist",
+          "pservers": [
+            {
+              "last_modified": "2019-04-18T11:14:07.665696+02:00",
+              "last_modified_millis": 1555578847665,
+              "last_modified_by": "anyone",
+              "name": "C2C_S11",
+              "id": 6029,
+              "description": "",
+              "weight": 10,
+              "client_transports": [
+                {
+                  "transport": {
+                    "last_modified": "0001-01-01T00:00:00Z",
+                    "last_modified_millis": 0,
+                    "last_modified_by": "",
+                    "name": "_client_pri_transport_C2C_S11",
+                    "description": "",
+                    "relationships": [],
+                    "config": {
+                      "transport_type": "dtcp",
+                      "backlog_full_wait": "0",
+                      "recv_spin_limit": "0",
+                      "backlog_size": "64mb",
+                      "port": "0",
+                      "subnet_mask": "",
+                      "virtual_name": "_client_pri_transport_C2C_S11_Set 1",
+                      "mode": "client"
+                    }
+                  },
+                  "matchers": []
+                }
+              ],
+              "cluster_transport": {
+                "transport": {
+                  "last_modified": "0001-01-01T00:00:00Z",
+                  "last_modified_millis": 0,
+                  "last_modified_by": "",
+                  "name": "_cluster_transport_C2C_S11",
+                  "description": "",
+                  "relationships": [],
+                  "config": {
+                    "transport_type": "dtcp",
+                    "backlog_full_wait": "0",
+                    "recv_spin_limit": "0",
+                    "backlog_size": "256mb",
+                    "port": "0",
+                    "subnet_mask": "",
+                    "virtual_name": "_cluster_transport_C2C_C1_Set 1",
+                    "mode": ""
+                  }
+                }
+              },
+              "dr_transport": {}
+            },
+            {
+              "last_modified": "2019-04-18T11:14:07.665696+02:00",
+              "last_modified_millis": 1555578847665,
+              "last_modified_by": "anyone",
+              "name": "C2C_S12",
+              "id": 16037,
+              "description": "",
+              "weight": 10,
+              "client_transports": [
+                {
+                  "transport": {
+                    "last_modified": "0001-01-01T00:00:00Z",
+                    "last_modified_millis": 0,
+                    "last_modified_by": "",
+                    "name": "_client_pri_transport_C2C_S12",
+                    "description": "",
+                    "relationships": [],
+                    "config": {
+                      "transport_type": "dtcp",
+                      "backlog_full_wait": "0",
+                      "recv_spin_limit": "0",
+                      "backlog_size": "64mb",
+                      "port": "0",
+                      "subnet_mask": "",
+                      "virtual_name": "_client_pri_transport_C2C_S12_Set 1",
+                      "mode": "client"
+                    }
+                  },
+                  "matchers": []
+                }
+              ],
+              "cluster_transport": {
+                "transport": {
+                  "last_modified": "0001-01-01T00:00:00Z",
+                  "last_modified_millis": 0,
+                  "last_modified_by": "",
+                  "name": "_cluster_transport_C2C_S12",
+                  "description": "",
+                  "relationships": [],
+                  "config": {
+                    "transport_type": "dtcp",
+                    "backlog_full_wait": "0",
+                    "recv_spin_limit": "0",
+                    "backlog_size": "256mb",
+                    "port": "0",
+                    "subnet_mask": "",
+                    "virtual_name": "_cluster_transport_C2C_C1_Set 1",
+                    "mode": ""
+                  }
+                }
+              },
+              "dr_transport": {}
+            },
+            {
+              "last_modified": "2019-04-18T11:14:07.665696+02:00",
+              "last_modified_millis": 1555578847665,
+              "last_modified_by": "anyone",
+              "name": "C2C_S13",
+              "id": 16039,
+              "description": "",
+              "weight": 10,
+              "client_transports": [
+                {
+                  "transport": {
+                    "last_modified": "0001-01-01T00:00:00Z",
+                    "last_modified_millis": 0,
+                    "last_modified_by": "",
+                    "name": "_client_pri_transport_C2C_S13",
+                    "description": "",
+                    "relationships": [],
+                    "config": {
+                      "transport_type": "dtcp",
+                      "backlog_full_wait": "0",
+                      "recv_spin_limit": "0",
+                      "backlog_size": "64mb",
+                      "port": "0",
+                      "subnet_mask": "",
+                      "virtual_name": "_client_pri_transport_C2C_S13_Set 1",
+                      "mode": "client"
+                    }
+                  },
+                  "matchers": []
+                }
+              ],
+              "cluster_transport": {
+                "transport": {
+                  "last_modified": "0001-01-01T00:00:00Z",
+                  "last_modified_millis": 0,
+                  "last_modified_by": "",
+                  "name": "_cluster_transport_C2C_S13",
+                  "description": "",
+                  "relationships": [],
+                  "config": {
+                    "transport_type": "dtcp",
+                    "backlog_full_wait": "0",
+                    "recv_spin_limit": "0",
+                    "backlog_size": "256mb",
+                    "port": "0",
+                    "subnet_mask": "",
+                    "virtual_name": "_cluster_transport_C2C_C1_Set 1",
+                    "mode": ""
+                  }
+                }
+              },
+              "dr_transport": {}
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "eftl_clusters": [
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "Cluster",
+      "description": "",
+      "jaas_required": false,
+      "secret": "tcuAxhxKQFDaFpLSjFbc",
+      "max_connections": 500,
+      "channels": [
+        {
+          "name": "channel",
+          "description": "",
+          "max_pending_acks": 100,
+          "max_message_size": "8kb",
+          "max_connections": 0,
+          "jaas_publish_group": "",
+          "jaas_subscribe_group": "",
+          "gcm_api_key": "",
+          "apns_cert": "",
+          "apns_cert_pass": "",
+          "apns_sandbox": false,
+          "server_heartbeat": 240,
+          "client_timeout": 600,
+          "client_connect_timeout": 60,
+          "client_reconnect_timeout": 60,
+          "provider_type": "ftl",
+          "ftl_exchange_format": "",
+          "max_queue_size": 1000,
+          "persistence_store": "",
+          "dynamic_durable_template": "",
+          "shared_durable_template": "",
+          "last_value_durable_template": "",
+          "static_durables": [],
+          "transports": [
+            "eftl_channel_app_facing_transport_Cluster_channel"
+          ]
+        }
+      ]
+    }
+  ],
+  "formats": [
+    {
+      "last_modified": "0001-01-01T00:00:00Z",
+      "last_modified_millis": 0,
+      "last_modified_by": "",
+      "name": "_ver_1177_nm_EventMessage",
+      "id": 1177,
+      "description": "",
+      "fields": [
+        {
+          "name": "CanonicalVersion",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Verb",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "CorrelationId",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "MessageBody",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Canonical",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Sender",
+          "type": "string",
+          "size": 0
+        }
+      ]
+    },
+    {
+      "last_modified": "0001-01-01T00:00:00Z",
+      "last_modified_millis": 0,
+      "last_modified_by": "",
+      "name": "_ver_11111_nm_EventMessage",
+      "id": 11111,
+      "description": "",
+      "fields": [
+        {
+          "name": "MessageBody",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "CorrelationId",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Verb",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "CanonicalVersion",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Canonical",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Sender",
+          "type": "string",
+          "size": 0
+        }
+      ]
+    },
+    {
+      "last_modified": "0001-01-01T00:00:00Z",
+      "last_modified_millis": 0,
+      "last_modified_by": "",
+      "name": "Logging",
+      "id": 1033,
+      "description": "",
+      "fields": [
+        {
+          "name": "logLevel",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "body",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "application",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "functionalDomain",
+          "type": "string",
+          "size": 0
+        }
+      ]
+    },
+    {
+      "last_modified": "0001-01-01T00:00:00Z",
+      "last_modified_millis": 0,
+      "last_modified_by": "",
+      "name": "ECS",
+      "id": 1403,
+      "description": "",
+      "fields": [
+        {
+          "name": "CanonicalVersion",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Verb",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "CorrelationId",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "MessageBody",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Canonical",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Sender",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Consumer",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Fulfillments",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "ExternalId",
+          "type": "string",
+          "size": 0
+        }
+      ]
+    },
+    {
+      "last_modified": "0001-01-01T00:00:00Z",
+      "last_modified_millis": 0,
+      "last_modified_by": "",
+      "name": "*",
+      "id": 1399,
+      "description": "",
+      "fields": null
+    },
+    {
+      "last_modified": "0001-01-01T00:00:00Z",
+      "last_modified_millis": 0,
+      "last_modified_by": "",
+      "name": "EventMessage",
+      "id": 6109,
+      "description": "",
+      "fields": [
+        {
+          "name": "CanonicalVersion",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Verb",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "CorrelationId",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "MessageBody",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Canonical",
+          "type": "string",
+          "size": 0
+        },
+        {
+          "name": "Sender",
+          "type": "string",
+          "size": 0
+        }
+      ]
+    }
+  ],
+  "transports": [
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_CPP_Connect",
+      "description": "",
+      "relationships": [],
+      "id": 1409,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_CPP",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_CPP_Connect_test",
+      "description": "",
+      "relationships": [],
+      "id": 1413,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_CPP_test",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_CPP_Listen",
+      "description": "",
+      "relationships": [],
+      "id": 1421,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_CPP",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_CPP_Listen_test",
+      "description": "",
+      "relationships": [],
+      "id": 1443,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_CPP_test",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_ECS_COMMON_Connect",
+      "description": "",
+      "relationships": [],
+      "id": 1437,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_ECS_COMMON",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_ECS_COMMON_Listen",
+      "description": "",
+      "relationships": [],
+      "id": 1433,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_ECS_COMMON",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_ECS_IN_Connect",
+      "description": "",
+      "relationships": [],
+      "id": 1439,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_ECS_IN",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_ECS_IN_Listen",
+      "description": "",
+      "relationships": [],
+      "id": 1411,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_ECS_IN",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_ECS_ROUTER_Connect",
+      "description": "",
+      "relationships": [],
+      "id": 1415,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_ECS_ROUTER",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_ECS_ROUTER_Listen",
+      "description": "",
+      "relationships": [],
+      "id": 1407,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_ECS_ROUTER",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_ECS_STOCKSTATUS_Connect",
+      "description": "",
+      "relationships": [],
+      "id": 1431,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_ECS_STOCKSTATUS",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_ECS_STOCKSTATUS_Listen",
+      "description": "",
+      "relationships": [],
+      "id": 1427,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_ECS_STOCKSTATUS",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_Logging_c",
+      "description": "",
+      "relationships": [],
+      "id": 1417,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "logging",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_Logging_l",
+      "description": "",
+      "relationships": [],
+      "id": 1405,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "logging",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_PNP_Connect",
+      "description": "",
+      "relationships": [],
+      "id": 1441,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_PNP",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_PNP_Listen",
+      "description": "",
+      "relationships": [],
+      "id": 1423,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_PNP",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_SKY_Connect",
+      "description": "",
+      "relationships": [],
+      "id": 1419,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_SKY",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_SKY_Connect_test",
+      "description": "",
+      "relationships": [],
+      "id": 1435,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_SKY_test",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_SKY_Listen",
+      "description": "",
+      "relationships": [],
+      "id": 1425,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_SKY",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "T_SKY_Listen_test",
+      "description": "",
+      "relationships": [],
+      "id": 1429,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "T_SKY_test",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "_GroupClientTport",
+      "description": "",
+      "relationships": [
+        {
+          "transport": "_GroupServerTport1"
+        }
+      ],
+      "id": 1027,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "_Primary_Group_Server_VName",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "_GroupClientTport2",
+      "description": "",
+      "relationships": [
+        {
+          "transport": "_GroupServerTport2"
+        }
+      ],
+      "id": 1031,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "_Backup_Group_server_VName",
+        "mode": "client"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "_GroupServerTport1",
+      "description": "",
+      "relationships": [
+        {
+          "transport": "_GroupClientTport"
+        }
+      ],
+      "id": 1025,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "_Primary_Group_Server_VName",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "_GroupServerTport2",
+      "description": "",
+      "relationships": [
+        {
+          "transport": "_GroupClientTport2"
+        }
+      ],
+      "id": 1029,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "virtual_name": "_Backup_Group_server_VName",
+        "mode": "server"
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "default",
+      "description": "",
+      "relationships": [],
+      "id": 330,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "mode": ""
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "eftl_channel_app_facing_transport_Cluster_channel",
+      "description": "",
+      "relationships": [],
+      "id": 316,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "mode": ""
+      }
+    },
+    {
+      "last_modified": "2019-04-18T11:14:07.665696+02:00",
+      "last_modified_millis": 1555578847665,
+      "last_modified_by": "anyone",
+      "name": "eftl_cluster_facing_transport_Cluster",
+      "description": "",
+      "relationships": [],
+      "id": 317,
+      "config": {
+        "transport_type": "dtcp",
+        "backlog_full_wait": "0",
+        "recv_spin_limit": "0",
+        "backlog_size": "64mb",
+        "port": "0",
+        "subnet_mask": "",
+        "mode": ""
+      }
+    }
+  ],
+  "connector_lists": [
+    {
+      "name": "_ECS_@_default_@_EP_ESB_ECS_STOCKSTATUS_Connect",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_ECS_STOCKSTATUS_Connect",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_ECS_@_default_@_EP_ESB_ECS_STOCKSTATUS_Listen",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_ECS_STOCKSTATUS_Listen",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_ECS_@_default_@_EP_COS_ECS_ROUTER_Connect",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_ECS_ROUTER_Connect",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_ECS_@_default_@_EP_COS_ECS_ROUTER_Listen",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_ECS_ROUTER_Listen",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_ECS_@_default_@_EP_ESB_ECS_COMMON_Connect",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_ECS_COMMON_Connect",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_ECS_@_default_@_EP_ESB_ECS_COMMON_Listen",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_ECS_COMMON_Listen",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_ECS_@_default_@_EP_ESB_ECS_IN_Connect",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_ECS_IN_Connect",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_ECS_@_default_@_EP_ESB_ECS_IN_Listen",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_ECS_IN_Listen",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_PNP_@_default_@_EP_ESB_PNP_Listen",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_PNP_Listen",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_PNP_@_default_@_EP_ESB_PNP_Connect",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_PNP_Connect",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_SKY_@_default_@_EP_ESB_SKY_Listen",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_SKY_Listen",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_SKY_@_default_@_EP_ESB_SKY_Connect",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_SKY_Connect",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "__GroupClient_@_default_@__Common",
+      "id": 16025,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "_GroupClientTport",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        },
+        {
+          "transport": "_GroupClientTport2",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_logging_@_default_@_EP_logging_trace",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_Logging_l",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_logging_@_default_@_C_logging",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_Logging_c",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_logging_@_default_@_EP_logging",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_Logging_l",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "__GroupServer_@_PrimaryGroupServer_@__Common",
+      "id": 16027,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "_GroupServerTport1",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "__GroupServer_@_BackupGroupServer_@__Common",
+      "id": 16029,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "_GroupClientTport",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        },
+        {
+          "transport": "_GroupServerTport2",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_CPP_@_default_@_EP_ESB_CPP_Connect",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_CPP_Connect",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_CPP_@_default_@_EP_ESB_CPP_Listen",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_CPP_Listen",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_default_@_default_@_default",
+      "id": 320,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "default",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "__eFTL_Cluster_@_default_@_eftl_cluster_facing_endpoint",
+      "id": 319,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "eftl_cluster_facing_transport_Cluster",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "__eFTL_Cluster_@_default_@_eftl_channel_app_facing_endpoint_channel",
+      "id": 318,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "eftl_channel_app_facing_transport_Cluster_channel",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_SKY_test_@_default_@_EP_ESB_SKY_Listen_test",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_SKY_Listen_test",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_SKY_test_@_default_@_EP_ESB_SKY_Connect_test",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_SKY_Connect_test",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_CPP_test_@_default_@_EP_ESB_CPP_Listen_test",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_CPP_Listen_test",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    },
+    {
+      "name": "_CPP_test_@_default_@_EP_ESB_CPP_Connect_test",
+      "id": 0,
+      "description": "",
+      "connectors": [
+        {
+          "transport": "T_CPP_Connect_test",
+          "receive": true,
+          "receive_inbox": true,
+          "send": true,
+          "send_inbox": true
+        }
+      ]
+    }
+  ],
+  "product_data": {}
+}
