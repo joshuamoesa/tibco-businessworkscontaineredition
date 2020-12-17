@@ -97,7 +97,7 @@ Run bash-scripts containing the Docker commands on this location:
 #### Run FTL cluster
 
 - Prepare a FTL 5.4 cluster using configuration from /resources/FTL/realm.json. This configuration defines the necessary Application and Endpoints needed to run the containers.
-- Start your cluster (realm & persistence servers)
+- Start your cluster (realm & persistence servers).
 
 ```sh
 #Realmserver
@@ -125,6 +125,9 @@ Use the following settings:
 * Value: -1
 
 ## References
-- [1] [AppDynamics: Howto instrument and correlate TIBCO FTL exit calls in TIBCO](https://community.appdynamics.com/t5/Knowledge-Base/How-do-I-instrument-and-correlate-TIBCO-FTL-exit-calls-in-TIBCO/ta-p/33621)
-- [2] [AppDynamics: How to get visibility into TIBCO with APM](https://www.appdynamics.com/blog/product/how-to-get-visibility-into-tibco-with-apm/)
-- [3] [AppDynamics: App Agent Node Properties](https://docs.appdynamics.com/display/PRO45/App+Agent+Node+Properties)
+- [1] [AppDynamics - Howto instrument and correlate TIBCO FTL exit calls in TIBCO](https://community.appdynamics.com/t5/Knowledge-Base/How-do-I-instrument-and-correlate-TIBCO-FTL-exit-calls-in-TIBCO/ta-p/33621)
+- [2] [AppDynamics - How to get visibility into TIBCO with APM](https://www.appdynamics.com/blog/product/how-to-get-visibility-into-tibco-with-apm/)
+- [3] [AppDynamics - App Agent Node Properties](https://docs.appdynamics.com/display/PRO45/App+Agent+Node+Properties)
+- [4] [TIBCO BWCE 2.5.1 docs](https://docs.tibco.com/products/tibco-businessworks-container-edition-2-5-1)
+- [5] [MEditor.md Open source online Markdown editor.](https://pandao.github.io/editor.md/en.html)
+- [6] [Docker - Networking features in Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/networking/#known-limitations-use-cases-and-workarounds)
