@@ -131,3 +131,4 @@ Use the following settings:
 - [4] [TIBCO BWCE 2.5.1 docs](https://docs.tibco.com/products/tibco-businessworks-container-edition-2-5-1)
 - [5] [MEditor.md Open source online Markdown editor.](https://pandao.github.io/editor.md/en.html)
 - [6] [Docker - Networking features in Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/networking/#known-limitations-use-cases-and-workarounds)
+- [7] [TIBCO - Integrating with FTL](https://docs.tibco.com/pub/bwce/2.5.4/doc/html/GUID-BAC1EBEA-0E6E-4DF7-B9B3-944A473EF8A3.html)
