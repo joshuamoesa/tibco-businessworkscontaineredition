@@ -1,12 +1,37 @@
 # AppDynamicsDemo
 
-## Prepare TIBCO BWCE base image
+This README.md contains additional notes that complement the howto described in [1].
 
-### Replace AppDynamics javaagent configuration files
+Make sure you have FTL installed and configured.  
 
-#### Replace default custom-activity-correlation.xml
+## Create the TIBCO BWCE base image
 
-Replace default custom-activity-correlation.xml with the proposed version [1] in AppServerAgent-1.8-20.8.0.30686.zip
+Prepare your local environment in order to create a working Docker base image.
+
+### Install TIBCO BWCE software
+
+Download and install TIBCO BWCE software on your local machine. Then, download the runtime software and copy bwce-runtime-2.5.1.zip to /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/bwce-runtime/
+
+### Install TIBCO FTL software
+
+Make sure FTL software is included in the correct TIBCO installation folders on your local machine
+
+This is where I put my stuff:
+
+- FTL JAR-files folder (folder com.tibco.ftl_5.4.0.009) in
+/Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/jars
+- ftl_linux_client_libs.zip in /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/lib
+- TIB_bwpluginftl_6.4.4_v6_bwce-runtime.zip in /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/plugins
+
+### Install & configure AppDynamics javaagent
+
+#### AppServerAgent ZIP
+
+AppServerAgent-1.8-20.8.0.30686.zip in /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/monitor-agents
+
+#### Replace default custom-activity-correlation.xml config
+
+Replace default custom-activity-correlation.xml with the proposed version (*Step 1 - custom-activity-correlation.xml (only send-receive scenario).txt* in [1]) in AppServerAgent-1.8-20.8.0.30686.zip
 
 ```sh
 #Get path of custom-activity-correlation.xml in ZIP-file
@@ -20,7 +45,7 @@ zip -d AppServerAgent-1.8-20.8.0.30686.zip ver20.8.0.30686/conf/custom-activity-
 zip AppServerAgent-1.8-20.8.0.30686.zip ver20.8.0.30686/conf/custom-activity-correlation.xml
 ```
 
-#### Replace default app-agent-config.xml
+#### Replace default app-agent-config.xml config
 
 Extract an app-agent-config.xml file and add the following include to the JAVA_AGENT_HOME/verx.x.x.x/conf/app-agent-config.xml in the fork-config section for all your FTL nodes.
 
@@ -40,6 +65,48 @@ zip -d AppServerAgent-1.8-20.8.0.30686.zip ver20.8.0.30686/conf/app-agent-config
 zip AppServerAgent-1.8-20.8.0.30686.zip ver20.8.0.30686/conf/app-agent-config.xml
 ```
 
+### Create TIBCO BWCE base image
+
+- Create the TIBCO BWCE base Docker images for the publisher and the subscriber.
+
+Run bash-scripts containing the Docker commands on this location:
+
+```/docker/<publisher or subscriber>/1_BUILD_IMAGE LOCAL Base.sh```
+
+- Create the TIBCO application Docker images
+
+Run bash-scripts containing the Docker commands on this location:
+
+```/docker/<publisher or subscriber>/2_BUILD_IMAGE LOCAL APP.sh```
+
+### Run the containers
+
+Run bash-scripts containing the Docker commands on this location:
+
+```/docker/<publisher or subscriber>/3_RUN_IMAGE LOCAL APP.sh```
+
+### Test the containers
+
+#### Run FTL cluster
+
+- Prepare a FTL 5.4 cluster using configuration from /resources/FTL/realm.json. This configuration defines the necessary Application and Endpoints needed to run the containers.
+- Start your cluster (realm & persistence servers)
+
+```sh
+#Realmserver
+cd /opt/tibco/ftl/current-version/bin
+sudo ./tibrealmserver --http 0.0.0.0:8080
+sudo ./tibstore -n S1 -d data_dir -rs http://localhost:8080
+sudo ./tibstore -n S2 -d data_dir -rs http://localhost:8080
+sudo ./tibstore -n S3 -d data_dir -rs http://localhost:8080
+```
+
+#### Run BWCE containers
+
+Run bash-scripts containing the Docker commands on this location:
+
+```/docker/<publisher or subscriber>/3_RUN_IMAGE LOCAL APP.sh```
+
 ## Create AppDynamics Agent Properties
 
 In AppDynamics UI go to Tiers & Nodes > Actions: Configure App Server Agent. Click on your node. Select Use *Custom Configuration*. Add a property by clicking the +-sign. Click on Save to commit the changes.
@@ -50,10 +117,7 @@ Use the following settings:
 * Type: Integer
 * Value: -1
 
-References:
-* [AppDynamics: App Agent Node Properties](https://docs.appdynamics.com/display/PRO45/App+Agent+Node+Properties)
-
 ## References
-[1] [AppDynamics: Howto instrument and correlate TIBCO FTL exit calls in TIBCO](https://community.appdynamics.com/t5/Knowledge-Base/How-do-I-instrument-and-correlate-TIBCO-FTL-exit-calls-in-TIBCO/ta-p/33621)
-[2] [AppDynamics: How to get visibility into TIBCO with APM](https://www.appdynamics.com/blog/product/how-to-get-visibility-into-tibco-with-apm/)
-
+- [1] [AppDynamics: Howto instrument and correlate TIBCO FTL exit calls in TIBCO](https://community.appdynamics.com/t5/Knowledge-Base/How-do-I-instrument-and-correlate-TIBCO-FTL-exit-calls-in-TIBCO/ta-p/33621)
+- [2] [AppDynamics: How to get visibility into TIBCO with APM](https://www.appdynamics.com/blog/product/how-to-get-visibility-into-tibco-with-apm/)
+- [3] [AppDynamics: App Agent Node Properties](https://docs.appdynamics.com/display/PRO45/App+Agent+Node+Properties)
