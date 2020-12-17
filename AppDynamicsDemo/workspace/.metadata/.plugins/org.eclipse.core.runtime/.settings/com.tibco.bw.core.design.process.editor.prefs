@@ -3,6 +3,10 @@
 //Publisher/Processes/publisher/Process.bwp.favorite.expansionstate=1
 //Publisher/Processes/publisher/Process.bwp.library.expansionstate=0
 //Publisher/Processes/publisher/Process.bwp.recent.expansionstate=0
+//Subscriber/Processes/subscriber/Process.bwp.displayer.openstate=1
+//Subscriber/Processes/subscriber/Process.bwp.favorite.expansionstate=1
+//Subscriber/Processes/subscriber/Process.bwp.library.expansionstate=0
+//Subscriber/Processes/subscriber/Process.bwp.recent.expansionstate=1
 com.tibco.bw.core.design.process.editor.numofvirtualpalettes=0
 eclipse.preferences.version=1
 global.bw.generalactivities.log=2020/12/16/13\:43\:50
