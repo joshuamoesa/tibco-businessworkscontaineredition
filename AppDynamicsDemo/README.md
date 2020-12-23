@@ -2,6 +2,11 @@
 
 This README.md contains additional notes that complement the AppDynamics article 'Howto instrument and correlate TIBCO FTL exit calls in TIBCO'[1].
 
+The BWCE code:
+<img src="https://github.com/joshuamoesa/tibco-businessworkscontaineredition/blob/master/AppDynamicsDemo/resources/images/screenshot_tibcobusinessstudio_bwcecode.png" width="500">
+
+The end result in AppDynamics:
+
 <img src="https://github.com/joshuamoesa/tibco-businessworkscontaineredition/blob/master/AppDynamicsDemo/resources/images/screenshot_appdynamics_endresult.png" width="500">
 
 ## Prerequisites (macOS)
