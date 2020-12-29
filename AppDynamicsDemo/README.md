@@ -1,8 +1,9 @@
 # AppDynamicsDemo
 
-This README.md contains additional notes that complement the AppDynamics article 'Howto instrument and correlate TIBCO FTL exit calls in TIBCO'[1].
+This README.md contains additional notes that complement the AppDynamics article 'Howto instrument and correlate TIBCO FTL exit calls in TIBCO'[1]. Main difference with [1] is that I'm using a predefined FTL message format instead of the 
 
 The BWCE code:
+
 <img src="https://github.com/joshuamoesa/tibco-businessworkscontaineredition/blob/master/AppDynamicsDemo/resources/images/screenshot_tibcobusinessstudio_bwcecode.png" width="500">
 
 The end result in AppDynamics:
