@@ -2127,6 +2127,11 @@
           "name": "Sender",
           "type": "string",
           "size": 0
+        },
+        {
+          "name": "singularityheader",
+          "type": "string",
+          "size": 0
         }
       ]
     }

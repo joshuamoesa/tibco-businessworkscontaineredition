@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmi:id="_OF1FED-xEeu6GOGjN9CaDg" targetNamespace="http://tns.tibco.com/bw/composite/Subscriber" name="Subscriber" compositeext:version="1.0.0" compositeext:formatVersion="2"/>

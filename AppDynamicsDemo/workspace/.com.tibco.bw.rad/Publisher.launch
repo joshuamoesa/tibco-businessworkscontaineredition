@@ -3,20 +3,25 @@
 <booleanAttribute key="AllProcesses" value="true"/>
 <listAttribute key="ExistedApplications">
 <listEntry value="Publisher.application"/>
+<listEntry value="Subscriber.application"/>
 </listAttribute>
 <booleanAttribute key="Initialized" value="true"/>
 <mapAttribute key="ProcessesArg">
 <mapEntry key="Publisher.application" value="publisher.Process"/>
+<mapEntry key="Subscriber.application" value="subscriber.Process"/>
 </mapAttribute>
 <listAttribute key="SelectedApplications">
 <listEntry value="Publisher.application"/>
+<listEntry value="Subscriber.application"/>
 </listAttribute>
 <listAttribute key="SelectedModules">
 <listEntry value="Publisher"/>
+<listEntry value="Subscriber"/>
 </listAttribute>
 <listAttribute key="SelectedPlugins"/>
 <mapAttribute key="SelectedProcesses">
 <mapEntry key="Publisher" value="publisher.Process"/>
+<mapEntry key="Subscriber" value="subscriber.Process"/>
 </mapAttribute>
 <booleanAttribute key="UseGovernance" value="true"/>
 <booleanAttribute key="append.args" value="true"/>
@@ -46,5 +51,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="Publisher.application@default:default,Publisher@default:false"/>
+<stringAttribute key="workspace_bundles" value="Publisher.application@default:default,Subscriber.application@default:default,Publisher@default:false,Subscriber@default:false"/>
 </launchConfiguration>

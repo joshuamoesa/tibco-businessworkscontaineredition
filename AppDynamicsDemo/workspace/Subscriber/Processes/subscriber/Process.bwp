@@ -193,9 +193,7 @@
         <schema attributeFormDefault="unqualified"
             elementFormDefault="unqualified"
             targetNamespace="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922"
-            xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:Q1="http://tns.tibco.com/bw/ftl/message/1608133490833" xmlns:tns="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922">
-            <import namespace="http://tns.tibco.com/bw/ftl/message/1608133490833"/>
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922">
             <complexType name="MetadataType">
                 <sequence>
                     <!--element name="eFTLRequest" type="boolean" minOccurs="0"/-->
@@ -235,18 +233,35 @@
                 <complexType>
                     <sequence>
                         <element minOccurs="0" name="Metadata" type="tns:MetadataType"/>
-                        <element minOccurs="0" name="Message" type="Q1:FTLMessageType"/>
-                    </sequence>
-                </complexType>
-            </element>
-            <element name="PredefinedMessage">
-                <complexType>
-                    <sequence>
-                        <element minOccurs="0" name="Metadata" type="tns:MetadataType"/>
                         <element minOccurs="0" name="Message" type="anyType"/>
                     </sequence>
                 </complexType>
             </element>
+            <element name="PredefinedMessage"
+                ns0:hash="EBD7BF77A7E551CAAB70C26DF53C09E6BE552C8810A1F7DDC8BE6F9D063C1F64" xmlns:ns0="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922">
+                <complexType>
+                    <sequence>
+                        <element minOccurs="0" name="Metadata" type="tns:MetadataType"/>
+                        <element minOccurs="0" name="Message" type="tns:PredefinedMessageType"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <complexType name="PredefinedMessageType">
+                <all>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="CanonicalVersion" type="string"/>
+                    <element maxOccurs="1" minOccurs="0" name="Verb" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="CorrelationId" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="MessageBody" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="Canonical" type="string"/>
+                    <element maxOccurs="1" minOccurs="0" name="Sender" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="singularityheader" type="string"/>
+                </all>
+            </complexType>
         </schema>
     </tibex:Types>
     <tibex:ProcessInfo callable="false" createdBy="joshuamoesa"
@@ -524,7 +539,8 @@
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
             name="_processContext" sca-bpel:internal="true"/>
-        <bpws:variable element="ns2:CustomMessage" name="FTLSubscriber" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:PredefinedMessage"
+            name="FTLSubscriber" sca-bpel:internal="true"/>
         <bpws:variable name="ftlProperty" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             sca-bpel:sharedResourceType="{http://ns.tibco.com/bw/sharedresource/ftl}FTLRealmServerConnection" type="xsd:string">
@@ -611,7 +627,9 @@
                                 <properties name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/ftl#//FTLSubscriber"/>
                                     <value acknowledgementMode="auto"
-                                    format="custom"
+                                    format="predefined"
+                                    formatHashValue="EBD7BF77A7E551CAAB70C26DF53C09E6BE552C8810A1F7DDC8BE6F9D063C1F64"
+                                    formatName="EventMessage"
                                     ftlRealmServerConnection="ftlProperty"
                                     outputElementQName="message_1608133490833:FTLMessageType"
                                     queueDispatcherThreads="1"
@@ -633,7 +651,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FTLSubscriber&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;(&amp;quot;Received FTL message containing a message: &amp;quot;, $FTLSubscriber/Message/data)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FTLSubscriber&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;(&amp;quot;Received FTL message containing a message: &amp;quot;, $FTLSubscriber/Message/MessageBody)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity

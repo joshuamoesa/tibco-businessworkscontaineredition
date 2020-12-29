@@ -1,12 +1,14 @@
-com.tibco.bw.core.design.debug.ui.launch.existingApplications=Publisher.application/
-com.tibco.bw.core.design.debug.ui.launch.processesArg=Publisher.application\=publisher.Process/
-com.tibco.bw.core.design.debug.ui.launch.selectedApplications=Publisher.application/
-com.tibco.bw.core.design.debug.ui.launch.selectedModules=Publisher/
-com.tibco.bw.core.design.debug.ui.launch.selectedProcesses=Publisher\=publisher.Process/
+com.tibco.bw.core.design.debug.ui.launch.existingApplications=Publisher.application/Subscriber.application/
+com.tibco.bw.core.design.debug.ui.launch.processesArg=Subscriber.application\=subscriber.Process/Publisher.application\=publisher.Process/
+com.tibco.bw.core.design.debug.ui.launch.selectedApplications=Publisher.application/Subscriber.application/
+com.tibco.bw.core.design.debug.ui.launch.selectedModules=Publisher/Subscriber/
+com.tibco.bw.core.design.debug.ui.launch.selectedProcesses=Publisher\=publisher.Process/Subscriber\=subscriber.Process/
 com.tibco.bw.core.design.debug.ui.view.BWProcessInstanceView+com.tibco.bw.core.design.debug.ui.actions.BWShowInstanceSatckByTempleteAction=true
 eclipse.preferences.version=1
 org.eclipse.debug.ui.DebugView+com.tibco.bw.core.design.debug.ui.actions.BWShowStackByTempleteAction=true
 org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<launchPerspectives/>\n
 org.eclipse.debug.ui.activate_debug_view=false
 org.eclipse.debug.ui.activate_workbench=false
+pref_state_memento.org.eclipse.debug.ui.BreakpointView=<?xml version\="1.0" encoding\="UTF-8"?>\n<VariablesViewMemento org.eclipse.debug.ui.SASH_DETAILS_PART\="315" org.eclipse.debug.ui.SASH_VIEW_PART\="684">\n<PRESENTATION_CONTEXT_PROPERTIES IMemento.internal.id\="org.eclipse.debug.ui.BreakpointView">\n<BOOLEAN BOOLEAN\="true" IMemento.internal.id\="org.eclipse.debug.ui.check"/>\n</PRESENTATION_CONTEXT_PROPERTIES>\n</VariablesViewMemento>
 preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|
+preferredTargets=default\:default|

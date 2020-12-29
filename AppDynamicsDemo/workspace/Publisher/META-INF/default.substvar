@@ -43,7 +43,7 @@
 		</globalVariable>
 		<globalVariable>
 			<name>BW.CLOUD.PORT</name>
-			<value>8080</value>
+			<value>8081</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>Integer</type>

@@ -240,9 +240,7 @@
         <schema attributeFormDefault="unqualified"
             elementFormDefault="unqualified"
             targetNamespace="http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591"
-            xmlns="http://www.w3.org/2001/XMLSchema"
-            xmlns:Q1="http://tns.tibco.com/bw/ftl/message/1608133490833" xmlns:tns="http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591">
-            <import namespace="http://tns.tibco.com/bw/ftl/message/1608133490833"/>
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591">
             <complexType name="MetadataType">
                 <sequence/>
             </complexType>
@@ -280,18 +278,33 @@
                 <complexType>
                     <sequence>
                         <element minOccurs="0" name="Metadata" type="tns:MetadataType"/>
-                        <element minOccurs="0" name="Message" type="Q1:FTLMessageType"/>
-                    </sequence>
-                </complexType>
-            </element>
-            <element name="PredefinedMessage">
-                <complexType>
-                    <sequence>
-                        <element minOccurs="0" name="Metadata" type="tns:MetadataType"/>
                         <element minOccurs="0" name="Message" type="anyType"/>
                     </sequence>
                 </complexType>
             </element>
+            <element name="PredefinedMessage"
+                ns0:hash="7440F02DE50B4136338F37BD65F3CC8934C88103D828207A35DE4A7D63709EAD" xmlns:ns0="http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591">
+                <complexType>
+                    <sequence>
+                        <element minOccurs="0" name="Metadata" type="tns:MetadataType"/>
+                        <element minOccurs="0" name="Message" type="tns:PredefinedMessageType"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <complexType name="PredefinedMessageType">
+                <all>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="CanonicalVersion" type="string"/>
+                    <element maxOccurs="1" minOccurs="0" name="Verb" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="CorrelationId" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="MessageBody" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="Canonical" type="string"/>
+                    <element maxOccurs="1" minOccurs="0" name="Sender" type="string"/>
+                </all>
+            </complexType>
         </schema>
         <wsdl:definitions
             targetNamespace="http://xmlns.example.com/20201216124400PLT"
@@ -890,6 +903,8 @@
             namespace="http://www.tibco.com/pe/WriteToLogActivitySchema" prefix="tns2"/>
         <tibex:namespaceItem
             namespace="http://xmlns.example.com/Person/parameters" prefix="tns3"/>
+        <tibex:namespaceItem
+            namespace="http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591" prefix="tns4"/>
     </tibex:NamespaceRegistry>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://tns.tibco.com/bw/REST"/>
     <bpws:import importType="http://www.w3.org/2001/XMLSchema" namespace="http://xmlns.example.com/Person/parameters"/>
@@ -911,7 +926,7 @@
                 <bpws:literal>publisher.FTLRealmServerConnection</bpws:literal>
             </bpws:from>
         </bpws:variable>
-        <bpws:variable element="ns4:CustomMessage"
+        <bpws:variable element="ns4:PredefinedMessage"
             name="FTLPublisher-input" sca-bpel:internal="true"/>
         <bpws:variable element="ns2:ActivityErrorData"
             name="_error_FTLPublisher" sca-bpel:internal="true"/>
@@ -1011,7 +1026,7 @@
                             </bpws:reply>
                             <bpws:extensionActivity>
                                 <tibex:activityExtension
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://tns.tibco.com/bw/ftl/publisher/message&quot; xmlns:tns3=&quot;http://xmlns.example.com/Person/parameters&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;get&quot;/>&lt;xsl:template name=&quot;FTLPublisher-input&quot; match=&quot;/&quot;>&lt;tns:CustomMessage>&lt;Message>&lt;xsl:if test=&quot;$get/parameters/tns3:personGetParameters/tns3:name&quot;>&lt;data>&lt;xsl:value-of select=&quot;$get/parameters/tns3:personGetParameters/tns3:name&quot;/>&lt;/data>&lt;/xsl:if>&lt;/Message>&lt;/tns:CustomMessage>&lt;/xsl:template>&lt;/xsl:stylesheet>"
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://xmlns.example.com/Person/parameters&quot; xmlns:tns4=&quot;http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;get&quot;/>&lt;xsl:template name=&quot;FTLPublisher-input&quot; match=&quot;/&quot;>&lt;tns4:PredefinedMessage>&lt;Message>&lt;xsl:if test=&quot;$get/parameters/tns3:personGetParameters/tns3:name&quot;>&lt;MessageBody>&lt;xsl:value-of select=&quot;$get/parameters/tns3:personGetParameters/tns3:name&quot;/>&lt;/MessageBody>&lt;/xsl:if>&lt;/Message>&lt;/tns4:PredefinedMessage>&lt;/xsl:template>&lt;/xsl:stylesheet>"
                                     expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"
                                     inputVariable="FTLPublisher-input"
                                     name="FTLPublisher"
@@ -1024,7 +1039,7 @@
                                     </bpws:sources>
                                     <tibex:inputBindings>
                                     <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns1=&quot;http://tns.tibco.com/bw/ftl/publisher/message&quot; xmlns:tns3=&quot;http://xmlns.example.com/Person/parameters&quot; xmlns:tns=&quot;http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;get.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;FTLPublisher-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns:CustomMessage>&#xa;            &lt;Message>&#xa;                &lt;xsl:if test=&quot;$get.parameters/tns3:name&quot;>&#xa;                    &lt;data>&#xa;                        &lt;xsl:value-of select=&quot;$get.parameters/tns3:name&quot;/>&#xa;                    &lt;/data>&#xa;                &lt;/xsl:if>&#xa;            &lt;/Message>&#xa;        &lt;/tns:CustomMessage>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns3=&quot;http://xmlns.example.com/Person/parameters&quot; xmlns:tns4=&quot;http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591&quot; version=&quot;2.0&quot;>&#xa;    &lt;xsl:param name=&quot;get.parameters&quot;/>&#xa;    &lt;xsl:template name=&quot;FTLPublisher-input&quot; match=&quot;/&quot;>&#xa;        &lt;tns4:PredefinedMessage>&#xa;            &lt;Message>&#xa;                &lt;xsl:if test=&quot;$get.parameters/tns3:name&quot;>&#xa;                    &lt;MessageBody>&#xa;                        &lt;xsl:value-of select=&quot;$get.parameters/tns3:name&quot;/>&#xa;                    &lt;/MessageBody>&#xa;                &lt;/xsl:if>&#xa;            &lt;/Message>&#xa;        &lt;/tns4:PredefinedMessage>&#xa;    &lt;/xsl:template>&#xa;&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                                     </tibex:inputBindings>
                                     <tibex:config>
                                     <bwext:BWActivity
@@ -1041,7 +1056,9 @@
                                     name="config" xsi:type="activityconfig:EMFProperty">
                                     <type href="http://ns.tibco.com/bw/palette/ftl#//FTLPublisher"/>
                                     <value
-                                    format="custom"
+                                    format="predefined"
+                                    formatHashValue="7440F02DE50B4136338F37BD65F3CC8934C88103D828207A35DE4A7D63709EAD"
+                                    formatName="EventMessage"
                                     ftlRealmServerConnection="ftlProperty"
                                     inputElementQName="message_1608133490833:FTLMessageType" xsi:type="ftl:FTLPublisher"/>
                                     </properties>
