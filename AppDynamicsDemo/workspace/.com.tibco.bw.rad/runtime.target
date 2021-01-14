@@ -8,6 +8,8 @@
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/ftl/6.4//runtime/plugins" type="Directory"/>
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/awsm/6.4//hotfix/runtime/plugins" type="Directory"/>
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/awsm/6.4//runtime/plugins" type="Directory"/>
+<location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/salesforce/6.9//hotfix/runtime/plugins" type="Directory"/>
+<location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/salesforce/6.9//runtime/plugins" type="Directory"/>
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/amazons3/6.4//hotfix/runtime/plugins" type="Directory"/>
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/amazons3/6.4//runtime/plugins" type="Directory"/>
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/auth-lib/1.1//hotfix/runtime/plugins" type="Directory"/>
