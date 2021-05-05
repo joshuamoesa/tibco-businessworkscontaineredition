@@ -43,19 +43,6 @@ This is where I put my stuff:
 
 Copy downloaded AppServerAgent-1.8-20.8.0.30686.zip to [tibco root path]/tibco/bwce/bwce/2.5/docker/resources/addons/monitor-agents
 
-#### (optional) Modify controller-info.xml environment config
-
-If you choose to use the controller-info.xml file (instead of commandline properties or a property file):
-
-```sh
-#Get path of controller-info.xml in ZIP-file
-zipinfo AppServerAgent-1.8-21.4.0.32403.zip
-
-zip -d AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/controller-info.xml
-   
-zip AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/controller-info.xml
-```
-
 #### Replace default custom-activity-correlation.xml config
 
 Replace default custom-activity-correlation.xml with the proposed version (*Step 1 - custom-activity-correlation.xml (only send-receive scenario).txt* in [1]) in AppServerAgent-1.8-21.4.0.32403.zip
@@ -90,6 +77,28 @@ zip -d AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/app-agent-config
 #Add the modified app-agent-config.xml. Make sure you have the same root path on your local machine
 #Example /ver20.8.0.30686/conf/custom-activity-correlation.xml
 zip AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/app-agent-config.xml
+```
+
+#### (optional) Modify controller-info.xml environment config
+
+If you choose to use the controller-info.xml file (instead of commandline properties or a property file), populate this file with the proper settings.
+These are the fields you would typically set:
+
+    <controller-host>environmentname.saas.appdynamics.com</controller-host>
+    <controller-port>443</controller-port>
+    <controller-ssl-enabled>true</controller-ssl-enabled>
+    <use-simple-hostname>false</use-simple-hostname>
+    <application-name>APPDYNAMICS_APPLICATION_NAME</application-name>
+    <tier-name>ADMonitorAgentDemo</tier-name>
+    <node-name>nodename_ADMonitorAgentDemo</node-name>
+    <account-access-key>APPLICATION_ACCOUNT_ACCESS_KEY</account-access-key>
+
+Some helpful commands:
+
+```sh
+zip -d AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/controller-info.xml
+   
+zip AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/controller-info.xml
 ```
 
 ### Create TIBCO BWCE base image
