@@ -1,6 +1,6 @@
 # AppDynamicsDemo
 
-This README.md contains additional notes that complement the AppDynamics article 'Howto instrument and correlate TIBCO FTL exit calls in TIBCO'[1]. Main difference with [1] is that I'm using a predefined FTL message format instead of the 
+This README.md contains additional notes that complement the AppDynamics article 'Howto instrument and correlate TIBCO FTL exit calls in TIBCO'[1]. Main difference with [1] is that I'm using a predefined FTL message format instead.
 
 The BWCE code:
 
@@ -13,9 +13,9 @@ The end result in AppDynamics:
 ## Prerequisites (macOS)
 
 - Docker Desktop Community 2.4.0 [Docker](https://www.docker.com/products/docker-desktop)
-- TIBCO FTL Enterprise 5.4 [TIBCO download](https://download.tibco.com)
-- TIBCO BWCE 2.5.1 [TIBCO download](https://download.tibco.com)
-- AppDynamics javaagent [AppDynamics download](https://download.appdynamics.com/download/#version=&apm=jvm%2Cjava-agent-api%2Copentracer%2Cjava-jdk8&os=linux%2Cosx%2Cwindows&platform_admin_os=linux%2Cosx%2Cwindows&appdynamics_cluster_os=linux&events=linuxwindows&eum=linux%2Cwindows%2Cgeoserver%2Cgeodata%2Csynthetic%2Csynthetic-server&page=1&apm_os=windows%2Clinux%2Calpine-linux%2Cosx%2Csolaris%2Csolaris-sparc%2Caix)
+- TIBCO FTL Enterprise (version 5.4 as of writing) [TIBCO download](https://download.tibco.com)
+- TIBCO BWCE (version 2.5.4 as of writing) [TIBCO download](https://download.tibco.com)
+- AppDynamics javaagent (AppServerAgent-1.8-21.4.0.32403.zip as of writing) [AppDynamics download](https://download.appdynamics.com/download/#version=&apm=jvm%2Cjava-agent-api%2Copentracer%2Cjava-jdk8&os=linux%2Cosx%2Cwindows&platform_admin_os=linux%2Cosx%2Cwindows&appdynamics_cluster_os=linux&events=linuxwindows&eum=linux%2Cwindows%2Cgeoserver%2Cgeodata%2Csynthetic%2Csynthetic-server&page=1&apm_os=windows%2Clinux%2Calpine-linux%2Cosx%2Csolaris%2Csolaris-sparc%2Caix)
 
 ## Create the TIBCO BWCE base image
 
@@ -23,7 +23,8 @@ Prepare your local environment in order to create a working Docker base image.
 
 ### Install TIBCO BWCE software
 
-Download and install TIBCO BWCE software on your local machine. Then, download the runtime software and copy bwce-runtime-2.5.1.zip to /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/bwce-runtime/
+Download and install TIBCO BWCE software on your local machine. Then, download the runtime software and copy bwce-runtime-2.5.4.zip to
+[tibco root path]/tibco/bwce/bwce/2.5/docker/resources/bwce-runtime/
 
 ### Install TIBCO FTL software
 
@@ -40,22 +41,35 @@ This is where I put my stuff:
 
 #### AppServerAgent ZIP
 
-AppServerAgent-1.8-20.8.0.30686.zip (use your own distribution) in /Users/joshuamoesa/Applications/tibco/bwce/bwce/2.5/docker/resources/addons/monitor-agents
+Copy downloaded AppServerAgent-1.8-20.8.0.30686.zip to [tibco root path]/tibco/bwce/bwce/2.5/docker/resources/addons/monitor-agents
+
+#### (optional) Modify controller-info.xml environment config
+
+If you choose to use the controller-info.xml file (instead of commandline properties or a property file):
+
+```sh
+#Get path of controller-info.xml in ZIP-file
+zipinfo AppServerAgent-1.8-21.4.0.32403.zip
+
+zip -d AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/controller-info.xml
+   
+zip AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/controller-info.xml
+```
 
 #### Replace default custom-activity-correlation.xml config
 
-Replace default custom-activity-correlation.xml with the proposed version (*Step 1 - custom-activity-correlation.xml (only send-receive scenario).txt* in [1]) in AppServerAgent-1.8-20.8.0.30686.zip
+Replace default custom-activity-correlation.xml with the proposed version (*Step 1 - custom-activity-correlation.xml (only send-receive scenario).txt* in [1]) in AppServerAgent-1.8-21.4.0.32403.zip
 
 ```sh
 #Get path of custom-activity-correlation.xml in ZIP-file
-zipinfo AppServerAgent-1.8-20.8.0.30686.zip
+zipinfo AppServerAgent-1.8-21.4.0.32403.zip
 
 #Delete default custom-activity-correlation.xml from ZIP-file
-zip -d AppServerAgent-1.8-20.8.0.30686.zip ver20.8.0.30686/conf/custom-activity-correlation.xml
+zip -d AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/custom-activity-correlation.xml
    
 #Add the new custom-activity-correlation.xml. Make sure you have the same root path on your local machine
-#Example /ver20.8.0.30686/conf/custom-activity-correlation.xml
-zip AppServerAgent-1.8-20.8.0.30686.zip ver20.8.0.30686/conf/custom-activity-correlation.xml
+#Example /ver21.4.0.32403/conf/custom-activity-correlation.xml
+zip AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/custom-activity-correlation.xml
 ```
 
 #### Replace default app-agent-config.xml config
@@ -68,14 +82,14 @@ Replace default app-agent-config.xml with your modified version in AppServerAgen
 
 ```sh
 #Get path of app-agent-config.xml in ZIP-file
-zipinfo AppServerAgent-1.8-20.8.0.30686.zip
+zipinfo AppServerAgent-1.8-21.4.0.32403.zip
 
 #Delete dapp-agent-config.xml from ZIP-file
-zip -d AppServerAgent-1.8-20.8.0.30686.zip ver20.8.0.30686/conf/app-agent-config.xml
+zip -d AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/app-agent-config.xml
 
 #Add the modified app-agent-config.xml. Make sure you have the same root path on your local machine
 #Example /ver20.8.0.30686/conf/custom-activity-correlation.xml
-zip AppServerAgent-1.8-20.8.0.30686.zip ver20.8.0.30686/conf/app-agent-config.xml
+zip AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/app-agent-config.xml
 ```
 
 ### Create TIBCO BWCE base image
