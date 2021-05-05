@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jndi:namedResource xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jndi="http://xsd.tns.tibco.com/amf/models/sharedresource/jndi" xmlns:salesforceconnection="http://ns.tibco.com/bw/palette/salesforceconnection" xmi:id="_cJzogKNOEeunjLPf9z-MIg" name="salesforcedemo.SalesforceConnection" type="salesforceconnection:SalesforceConnection">
+  <jndi:configuration xsi:type="salesforceconnection:SalesforceConnection" xmi:id="_cJ1dsKNOEeunjLPf9z-MIg" wsdlFilePath="/SalesforceResources/partner_47_0.wsdl" serverURL="https://login.salesforce.com/services/Soap/u/47.0" userName="joshuamoesa@gmail.com" password="#!e2F5ax+2BjUbn3iYwC3Au2p+d5aj+7qeljeRbfnRegdEMC4Rpvprgw8nfVL+aAwWMPP9jZrKvt8G/c7CQpF1lG9rlvpIz+MwwFzW7L8qJ/Y="/>
+</jndi:namedResource>

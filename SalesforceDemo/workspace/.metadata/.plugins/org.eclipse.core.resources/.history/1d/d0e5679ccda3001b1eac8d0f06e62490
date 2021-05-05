@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpws:process exitOnStandardFault="no" name="salesforcedemo.Process"
+    suppressJoinFailure="yes"
+    targetNamespace="http://xmlns.example.com/20210423023516"
+    xmlns:bpws="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:info="http://www.tibco.com/bw/process/info"
+    xmlns:ns="http://www.tibco.com/pe/EngineTypes"
+    xmlns:ns0="urn:partner.soap.sforce.com_bulkOperation+a9603d6b-22c7-49e0-af6c-6d40b317eef3+input"
+    xmlns:ns1="http://schemas.tibco.com/bw/plugins/salesforce/2.0/salesforceBulkQuery"
+    xmlns:ns2="http://tns.tibco.com/bw/palette/internal/activityerror+bw.sfbulk.SalesforceBulkQuery"
+    xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
+    xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
+    xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
+    xmlns:tibprop="http://ns.tibco.com/bw/property" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <tibex:Types>
+        <xs:schema attributeFormDefault="unqualified"
+            elementFormDefault="qualified"
+            targetNamespace="http://www.tibco.com/pe/EngineTypes"
+            xmlns:tns="http://www.tibco.com/pe/EngineTypes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="OptionalErrorReport">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Class" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="FaultDetail">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ActivityName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0" name="Data" type="tns:anydata"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Msg" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="MsgCode" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessStack" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="StackTrace" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="FullClass" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="Class" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="ProcessContext">
+                <xs:sequence>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="JobId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ApplicationName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="EngineName" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" name="ProcessInstanceId" type="xs:string"/>
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" minOccurs="0"
+                        name="CustomJobId" type="xs:string"/>
+                    <!--xs:element name="RestartedFromCheckpoint" form="unqualified" block="extension restriction substitution" type="xs:boolean"/-->
+                    <xs:element
+                        block="extension restriction substitution"
+                        form="unqualified" maxOccurs="unbounded"
+                        minOccurs="0" name="TrackingInfo" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType block="extension restriction"
+                final="extension restriction" name="anydata">
+                <xs:sequence>
+                    <xs:any namespace="##any" processContents="lax"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="OptionalErrorReport" type="tns:OptionalErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ErrorReport" type="tns:ErrorReport"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="FaultDetail" type="tns:FaultDetail"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="ProcessContext" type="tns:ProcessContext"/>
+            <xs:element block="extension restriction substitution"
+                final="extension restriction" name="CorrelationValue" type="xs:string"/>
+        </xs:schema>
+        <schema attributeFormDefault="unqualified"
+            elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/pe/plugin/5.0/exceptions">
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="ActivityException" type="tns:ActivityExceptionType"/>
+            <complexType name="ActivityTimedOutExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="ActivityTimedOutException" type="tns:ActivityTimedOutExceptionType"/>
+            <complexType name="DuplicateKeyExceptionType">
+                <complexContent>
+                    <extension base="tns:ActivityExceptionType">
+                        <sequence>
+                            <element name="duplicateKey" type="string"/>
+                            <element minOccurs="0" name="previousJobID" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="DuplicateKeyException" type="tns:DuplicateKeyExceptionType"/>
+        </schema>
+        <schema
+            targetNamespace="urn:partner.soap.sforce.com_bulkOperation+a9603d6b-22c7-49e0-af6c-6d40b317eef3+input"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:partner.soap.sforce.com_bulkOperation+a9603d6b-22c7-49e0-af6c-6d40b317eef3+input">
+            <complexType name="BulkOperationInputType">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" ref="tns:ConnectionInfo"/>
+                    <element maxOccurs="1" minOccurs="0" name="Bulk" type="tns:BulkType"/>
+                    <element maxOccurs="1" minOccurs="0" ref="tns:BulkOptional"/>
+                </sequence>
+            </complexType>
+            <element name="BulkOperationInput" type="tns:BulkOperationInputType"/>
+            <element name="ConnectionInfo" nillable="false" type="tns:ConnectionInfoType"/>
+            <complexType name="ConnectionInfoType">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="serverUrl" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="sessionId" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="externalSessionIdUsed" type="boolean"/>
+                </sequence>
+            </complexType>
+            <complexType name="BulkType">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="queryType" type="string"/>
+                    <element maxOccurs="1" minOccurs="0" name="format" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="serialProcessing" type="boolean"/>
+                    <element maxOccurs="1" minOccurs="0" name="query" type="string"/>
+                </sequence>
+            </complexType>
+            <element name="BulkOptional" nillable="false" type="tns:BulkOptionalType"/>
+            <complexType name="BulkOptionalType">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="timeout" type="long"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="Sforce-Disable-Batch-Retry" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="Sforce-Line-Ending" type="string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="Sforce-Enable-PK-Chunking" type="string"/>
+                </sequence>
+            </complexType>
+        </schema>
+        <schema
+            targetNamespace="http://schemas.tibco.com/bw/plugins/salesforce/2.0/salesforceBulkQuery"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.tibco.com/bw/plugins/salesforce/2.0/salesforceBulkQuery">
+            <complexType name="SalesforceBulkQueryInputClass">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="BulkQueryInput" type="tns:BulkQueryInput"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="BulkQuery" type="tns:BulkQuery"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="BulkQueryOptional" type="tns:BulkQueryOptional"/>
+                </sequence>
+            </complexType>
+            <element name="SalesforceBulkQueryInput" type="tns:SalesforceBulkQueryInputClass"/>
+            <element name="SalesforceBulkQueryOutput" type="tns:SalesforceBulkQueryOutputClass"/>
+            <complexType name="SalesforceBulkQueryOutputClass">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="result" type="tns:Result"/>
+                </sequence>
+            </complexType>
+            <complexType name="ConnectionInfo">
+                <sequence>
+                    <element name="serverUrl" type="string"/>
+                    <element name="sessionId" type="string"/>
+                    <element name="externalSessionIdUsed" type="boolean"/>
+                </sequence>
+            </complexType>
+            <complexType name="Headers">
+                <sequence>
+                    <element name="Content-Type" type="string"/>
+                    <element name="Sforce-Disable-Batch-Retry" type="string"/>
+                    <element name="Sforce-Line-Ending" type="string"/>
+                    <element name="Sforce-Enable-PK-Chunking" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="BulkQueryInput">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="connectionInfo" type="tns:ConnectionInfo"/>
+                </sequence>
+            </complexType>
+            <complexType name="BulkQuery">
+                <sequence>
+                    <element name="query" type="string"/>
+                    <element name="fileLocation" type="long"/>
+                </sequence>
+            </complexType>
+            <complexType name="BulkQueryOptional">
+                <sequence>
+                    <element maxOccurs="1" minOccurs="0" name="headers" type="tns:Headers"/>
+                </sequence>
+            </complexType>
+            <complexType name="Result">
+                <sequence>
+                    <element name="jobId" type="string"/>
+                    <element name="success" type="boolean"/>
+                </sequence>
+            </complexType>
+            <complexType name="Result1">
+                <sequence>
+                    <element name="success" type="boolean"/>
+                    <element name="filePath" type="string"/>
+                    <element maxOccurs="unbounded" minOccurs="0"
+                        name="sObject" type="tns:SObject"/>
+                </sequence>
+            </complexType>
+            <complexType name="SObject">
+                <sequence>
+                    <element name="type" type="string"/>
+                    <element name="fieldsToNull" type="string"/>
+                    <element name="id" type="string"/>
+                </sequence>
+            </complexType>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://schemas.tibco.com/bw/plugins/sfbulk/2.0/salesforceBulkExceptions"
+            version="" xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns2="http://schemas.tibco.com/bw/plugins/sfbulk/2.0/salesforceBulkExceptions" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <element name="SalesforcePluginException" type="tns2:SalesforcePluginExceptionType"/>
+            <complexType name="SalesforcePluginExceptionType">
+                <complexContent>
+                    <extension base="tns2:PluginExceptionType"/>
+                </complexContent>
+            </complexType>
+            <element name="SalesforceConnectionNotFoundException" type="tns2:SalesforceConnectionNotFoundExceptionType"/>
+            <complexType name="SalesforceConnectionNotFoundExceptionType">
+                <complexContent>
+                    <extension base="tns2:SalesforcePluginExceptionType">
+                        <sequence>
+                            <element name="salesforceConnection" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="SalesforceLoginException" type="tns2:SalesforceLoginExceptionType"/>
+            <complexType name="SalesforceLoginExceptionType">
+                <complexContent>
+                    <extension base="tns2:SalesforcePluginExceptionType">
+                        <sequence>
+                            <element name="details" type="string"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <element name="SalesforceRESTException" type="tns2:SalesforceRESTExceptionType"/>
+            <complexType name="SalesforceRESTExceptionType">
+                <complexContent>
+                    <extension base="tns2:SalesforcePluginExceptionType">
+                        <sequence>
+                            <element name="details" type="string"/>
+                            <element maxOccurs="unbounded" minOccurs="0"
+                                name="resultDetails" type="tns2:ResultDetails"/>
+                        </sequence>
+                    </extension>
+                </complexContent>
+            </complexType>
+            <complexType name="StatusError">
+                <sequence>
+                    <element minOccurs="0" name="statusCode" type="xsd:string"/>
+                    <element minOccurs="0" name="message" type="xsd:string"/>
+                    <element maxOccurs="unbounded" minOccurs="0"
+                        name="fields" type="xsd:string"/>
+                </sequence>
+            </complexType>
+            <!-- This is modeled inline with the exception schema of the Salesforce Bulk API -->
+            <complexType name="ResultDetails">
+                <sequence>
+                    <element minOccurs="0" name="success" type="xsd:int"/>
+                    <element minOccurs="0" name="created" type="xsd:string"/>
+                    <element minOccurs="0" name="id" type="xsd:string"/>
+                    <element maxOccurs="1" minOccurs="0"
+                        name="statusError" type="tns2:StatusError"/>
+                </sequence>
+            </complexType>
+            <complexType name="ActivityExceptionType">
+                <sequence>
+                    <element name="msg" type="string"/>
+                    <element minOccurs="0" name="msgCode" type="string"/>
+                </sequence>
+            </complexType>
+            <complexType name="PluginExceptionType">
+                <complexContent>
+                    <extension base="tns2:ActivityExceptionType"/>
+                </complexContent>
+            </complexType>
+        </schema>
+        <schema elementFormDefault="unqualified"
+            targetNamespace="http://tns.tibco.com/bw/palette/internal/activityerror+bw.sfbulk.SalesforceBulkQuery"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:Q1="http://schemas.tibco.com/bw/plugins/sfbulk/2.0/salesforceBulkExceptions" xmlns:tns="http://tns.tibco.com/bw/palette/internal/activityerror+bw.sfbulk.SalesforceBulkQuery">
+            <import namespace="http://schemas.tibco.com/bw/plugins/sfbulk/2.0/salesforceBulkExceptions"/>
+            <element name="ActivityErrorData" type="tns:ActivityErrorDataType"/>
+            <complexType name="ActivityErrorDataType">
+                <choice>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:SalesforceRESTException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:SalesforceLoginException"/>
+                    <element maxOccurs="1" minOccurs="0" ref="Q1:SalesforceConnectionNotFoundException"/>
+                </choice>
+            </complexType>
+        </schema>
+    </tibex:Types>
+    <tibex:ProcessInfo callable="false" createdBy="joshuamoesa"
+        createdOn="Fri Apr 23 02:35:16 CEST 2021" description=""
+        extraErrorVars="true" modifiers="public"
+        productVersion="2.5.4 V57 2020-08-14" scalable="true"
+        singleton="true" stateless="true" type="IT"/>
+    <tibex:ProcessInterface context="" input="" output=""/>
+    <tibex:ProcessTemplateConfigurations/>
+    <notation:Diagram measurementUnit="Pixel" type="BWProcess"
+        xmlns:bwnotation="http://tns.tibco.com/bw/runtime/BWNotation"
+        xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <children type="2001">
+            <children type="5001"/>
+            <children type="3001">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <children type="3002">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3003">
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+            </children>
+            <children type="3004">
+                <children type="4018">
+                    <children type="3018">
+                        <children type="4020">
+                            <children type="3020">
+                                <children type="4005">
+                                    <children type="3007">
+                                    <children type="4002 bw.sfbulk.SalesforceBulkQuery">
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <children type="4017">
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <layoutConstraint xsi:type="notation:Bounds"/>
+                                    </children>
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles
+                                    backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <element href="//0/@process/@activity/@activity/@activities.0"/>
+                                    <layoutConstraint
+                                    height="40" width="40"
+                                    x="38"
+                                    xsi:type="notation:Bounds" y="126"/>
+                                    </children>
+                                    <styles xsi:type="notation:DrawerStyle"/>
+                                    <styles xsi:type="notation:SortingStyle"/>
+                                    <styles xsi:type="notation:FilteringStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    </children>
+                                    <styles
+                                    fontName=".AppleSystemUIFont"
+                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
+                                    <styles backgroundColor="16777215"
+                                    gradientEndColor="50431"
+                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
+                                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                                    <element href="//0/@process/@activity/@activity"/>
+                                    <layoutConstraint height="384"
+                                    width="515" xsi:type="notation:Bounds"/>
+                                </children>
+                                <styles xsi:type="notation:SortingStyle"/>
+                                <styles xsi:type="notation:FilteringStyle"/>
+                            </children>
+                            <styles fontName=".AppleSystemUIFont"
+                                lineColor="0" xsi:type="notation:ShapeStyle"/>
+                            <styles xsi:type="bwnotation:BackgroundStyle"/>
+                            <styles xsi:type="bwnotation:ResizingStyle"/>
+                            <element href="//0/@process/@activity"/>
+                            <layoutConstraint height="365" width="444"
+                                x="30" xsi:type="notation:Bounds" y="20"/>
+                        </children>
+                        <styles xsi:type="notation:SortingStyle"/>
+                        <styles xsi:type="notation:FilteringStyle"/>
+                        <element href="//0/@process/@activity"/>
+                    </children>
+                    <styles fontName=".AppleSystemUIFont" lineColor="0" xsi:type="notation:ShapeStyle"/>
+                    <styles xsi:type="bwnotation:BackgroundStyle"/>
+                    <styles xsi:type="bwnotation:ResizingStyle"/>
+                    <element href="//0/@process/@activity"/>
+                    <layoutConstraint height="409" width="519" xsi:type="notation:Bounds"/>
+                </children>
+                <styles xsi:type="notation:SortingStyle"/>
+                <styles xsi:type="notation:FilteringStyle"/>
+                <element href="//0/@process"/>
+            </children>
+            <styles fontName=".AppleSystemUIFont" lineColor="0" xsi:type="notation:ShapeStyle"/>
+            <element href="//0/@process"/>
+            <layoutConstraint height="460" width="860" xsi:type="notation:Bounds"/>
+        </children>
+        <styles xsi:type="notation:DiagramStyle"/>
+        <element href="//0"/>
+    </notation:Diagram>
+    <bpws:variables>
+        <bpws:variable element="ns:ProcessContext"
+            name="_processContext" sca-bpel:internal="true"/>
+        <bpws:variable name="salesforceConnProperty"
+            sca-bpel:hotUpdate="false" sca-bpel:privateProperty="true"
+            sca-bpel:property="yes"
+            sca-bpel:sharedResourceType="{http://ns.tibco.com/bw/palette/salesforceconnection}SalesforceConnection" type="xsd:string"/>
+        <bpws:variable element="ns0:BulkOperationInput"
+            name="SalesforceBulkQuery-input" sca-bpel:internal="true"/>
+        <bpws:variable element="ns1:SalesforceBulkQueryOutput"
+            name="SalesforceBulkQuery" sca-bpel:internal="true"/>
+        <bpws:variable element="ns2:ActivityErrorData"
+            name="_error_SalesforceBulkQuery" sca-bpel:internal="true"/>
+        <bpws:variable element="ns:ErrorReport" name="_error" sca-bpel:internal="true"/>
+    </bpws:variables>
+    <bpws:extensions>
+        <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bw/process/info"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"/>
+        <bpws:extension mustUnderstand="no" namespace="http://docs.oasis-open.org/ns/opencsa/sca/200912"/>
+        <bpws:extension mustUnderstand="no" namespace="http://ns.tibco.com/bw/property"/>
+        <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
+    </bpws:extensions>
+    <bpws:scope name="scope">
+        <bpws:flow name="flow">
+            <bpws:links/>
+            <bpws:extensionActivity>
+                <tibex:activityExtension
+                    inputVariable="SalesforceBulkQuery-input"
+                    name="SalesforceBulkQuery"
+                    outputVariable="SalesforceBulkQuery"
+                    tibex:xpdlId="a9603d6b-22c7-49e0-af6c-6d40b317eef3" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <tibex:inputBindings>
+                        <tibex:inputBinding
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?> &lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;urn:partner.soap.sforce.com_bulkOperation+a9603d6b-22c7-49e0-af6c-6d40b317eef3+input&quot; version=&quot;2.0&quot;> &lt;xsl:template name=&quot;SalesforceBulkQuery-input&quot; match=&quot;/&quot;> &lt;tns:BulkOperationInput/>&lt;/xsl:template> &lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                    </tibex:inputBindings>
+                    <tibex:config>
+                        <bwext:BWActivity
+                            activityTypeID="bw.sfbulk.SalesforceBulkQuery"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:sfbulk="http://ns.tibco.com/bw/palette/sfbulk" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/sfbulk#//SalesforceBulkQuery"/>
+                                    <value format="CSV"
+                                    querytype="Query"
+                                    salesforceConnection="salesforceConnProperty" xsi:type="sfbulk:SalesforceBulkQuery"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:config>
+                </tibex:activityExtension>
+            </bpws:extensionActivity>
+        </bpws:flow>
+    </bpws:scope>
+</bpws:process>

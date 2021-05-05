@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sca:composite xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:BW="http://xsd.tns.tibco.com/amf/models/sca/implementationtype/BW" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:compositeext="http://schemas.tibco.com/amx/3.0/compositeext" xmlns:rest="http://xsd.tns.tibco.com/bw/models/binding/rest" xmlns:sca="http://www.osoa.org/xmlns/sca/1.0" xmlns:scact="http://xsd.tns.tibco.com/amf/models/sca/componentType" xmlns:scaext="http://xsd.tns.tibco.com/amf/models/sca/extensions" xmi:id="_mTviYKNNEeunjLPf9z-MIg" targetNamespace="http://tns.tibco.com/bw/composite/SalesforceDemo" name="SalesforceDemo" compositeext:version="1.0.0" compositeext:formatVersion="2">
+  <sca:service xmi:id="_y76j0KNNEeunjLPf9z-MIg" name="contacts" promote="ComponentProcess/contacts">
+    <sca:interface.wsdl xmi:id="_y8AqcKNNEeunjLPf9z-MIg" interface="http://xmlns.example.com/20210422113205PLT#wsdl.interface(contacts)"/>
+    <scaext:binding xsi:type="rest:RestServiceBinding" xmi:id="_y8H_MKNNEeunjLPf9z-MIg" name="RestService" path="/contacts" docBasePath="http://localhost:7777/SalesforceDemo" docResourcePath="contacts" basePath="/" connector="salesforcedemo.contacts" structuredData="true" technologyVersion="2.0" implementation="Service Descriptors/salesforcedemo.Process-contacts.json">
+      <operation xmi:id="_y8LpkKNNEeunjLPf9z-MIg" operationName="get" nickname="get-contacts" httpMethod="GET" notes="getContacts" responseStyle="element" outputPartName="item">
+        <clientFormat>json</clientFormat>
+        <clientRequestFormat>json</clientRequestFormat>
+      </operation>
+      <parameters xmi:id="_y8a6IKNNEeunjLPf9z-MIg"/>
+      <advancedConfig xmi:id="_y8KbcKNNEeunjLPf9z-MIg" blockingQueueSize="2147483647"/>
+    </scaext:binding>
+    <scact:bindingAdjunct xmi:id="_y8LpkaNNEeunjLPf9z-MIg" bindingName="RestService"/>
+  </sca:service>
+  <sca:property xmi:id="_m2Tc4KNNEeunjLPf9z-MIg" name="BW.APPNODE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m2b_wKNNEeunjLPf9z-MIg" name="BW.DEPLOYMENTUNIT.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m2fDEKNNEeunjLPf9z-MIg" name="BW.HOST.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m2iGYKNNEeunjLPf9z-MIg" name="BW.DEPLOYMENTUNIT.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m2lJsKNNEeunjLPf9z-MIg" name="BW.MODULE.VERSION" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_m2nl8KNNEeunjLPf9z-MIg" name="BW.CLOUD.PORT" type="XMLSchema:int" scalable="true"/>
+  <sca:property xmi:id="_m2qpQKNNEeunjLPf9z-MIg" name="BW.MODULE.NAME" type="XMLSchema:string" scalable="true"/>
+  <sca:property xmi:id="_GSQtcKNOEeunjLPf9z-MIg" name="salesforce.wsdl" type="XMLSchema:string" scaext:simpleValue="" publicAccess="true" scalable="true"/>
+  <sca:component xmi:id="_mo6hIKNNEeunjLPf9z-MIg" name="ComponentProcess" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_mo7IMKNNEeunjLPf9z-MIg" processName="salesforcedemo.ProcessGetContacts"/>
+    <sca:service xmi:id="_y73ggKNNEeunjLPf9z-MIg" name="contacts">
+      <sca:interface.wsdl xmi:id="_y74HkKNNEeunjLPf9z-MIg" interface="http://xmlns.example.com/20210422113205PLT#wsdl.interface(contacts)"/>
+    </sca:service>
+  </sca:component>
+  <sca:component xmi:id="_xi_EwKPLEeunjLPf9z-MIg" name="Component1Process" compositeext:version="1.0.0.qualifier">
+    <scaext:implementation xsi:type="BW:BWComponentImplementation" xmi:id="_xi_EwaPLEeunjLPf9z-MIg" processName="salesforcedemo.Process"/>
+  </sca:component>
+</sca:composite>

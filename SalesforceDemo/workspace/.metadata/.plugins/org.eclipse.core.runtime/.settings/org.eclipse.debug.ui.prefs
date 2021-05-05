@@ -1,0 +1,14 @@
+com.tibco.bw.core.design.debug.ui.launch.existingApplications=SalesforceDemo.application/
+com.tibco.bw.core.design.debug.ui.launch.processesArg=SalesforceDemo.application\=salesforcedemo.ProcessGetContacts/
+com.tibco.bw.core.design.debug.ui.launch.selectedApplications=SalesforceDemo.application/
+com.tibco.bw.core.design.debug.ui.launch.selectedModules=SalesforceDemo/
+com.tibco.bw.core.design.debug.ui.launch.selectedProcesses=SalesforceDemo\=salesforcedemo.ProcessGetContacts/
+com.tibco.bw.core.design.debug.ui.view.BWProcessInstanceView+com.tibco.bw.core.design.debug.ui.actions.BWShowInstanceSatckByTempleteAction=true
+eclipse.preferences.version=1
+org.eclipse.debug.ui.DebugView+com.tibco.bw.core.design.debug.ui.actions.BWShowStackByTempleteAction=true
+org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<launchPerspectives/>\n
+org.eclipse.debug.ui.activate_debug_view=false
+org.eclipse.debug.ui.activate_workbench=false
+pref_state_memento.org.eclipse.debug.ui.DebugVieworg.eclipse.debug.ui.DebugView=<?xml version\="1.0" encoding\="UTF-8"?>\n<DebugViewMemento org.eclipse.debug.ui.BREADCRUMB_DROPDOWN_AUTO_EXPAND\="false"/>
+preferredDetailPanes=DefaultDetailPane\:DefaultDetailPane|
+preferredTargets=default\:default|

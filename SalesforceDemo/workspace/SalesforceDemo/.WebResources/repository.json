@@ -1,0 +1,21 @@
+{
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/salesforcedemo.Process-contacts.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/salesforcedemo.ProcessGetContacts-contacts.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/salesforcedemo.ProcessSalesforce-contactpersonen.json",
+            "type": "generated"
+        }
+    ]
+}

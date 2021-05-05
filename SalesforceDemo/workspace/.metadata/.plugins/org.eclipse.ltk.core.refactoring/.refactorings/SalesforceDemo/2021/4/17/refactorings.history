@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SalesforceDemo/Processes/salesforcedemo/Process.bwp&apos; to &apos;ProcessGetContacts.bwp&apos;" description="Rename resource &apos;Process.bwp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Processes/salesforcedemo/Process.bwp" name="ProcessGetContacts.bwp" stamp="1619084031098" updateReferences="true"/>
+</session>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config:ProjectConfig xmlns:config="http://www.tibco.com/XPD/projectConfig">
+  <projectDetails id="com.example.salesforcedemo">
+    <globalDestinations/>
+    <edition>bwcf</edition>
+  </projectDetails>
+  <config:specialFolders>
+    <config:folder id="_k3C64KNNEeunjLPf9z-MIg" kind="com.tibco.amx.zion.schema" location="Schemas"/>
+    <config:folder id="_mH1NUKNNEeunjLPf9z-MIg" kind="com.tibco.bw.process.folder" location="Processes"/>
+    <config:folder id="_mH3CgKNNEeunjLPf9z-MIg" kind="wsdl" location="Service Descriptors"/>
+    <config:folder id="_mH43sKNNEeunjLPf9z-MIg" kind="com.tibco.amx.zion.resource" location="Resources"/>
+  </config:specialFolders>
+</config:ProjectConfig>

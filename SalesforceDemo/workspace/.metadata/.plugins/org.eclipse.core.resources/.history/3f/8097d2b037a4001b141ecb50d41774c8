@@ -1,0 +1,13 @@
+{
+    "records": [],
+    "resources": [
+        {
+            "location": "Service Descriptors/salesforcedemo.Process-contacts.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/salesforcedemo.ProcessGetContacts-contacts.json",
+            "type": "generated"
+        }
+    ]
+}
