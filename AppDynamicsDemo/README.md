@@ -115,22 +115,16 @@ Run bash-scripts containing the Docker commands on this location:
 
 ```/docker/<publisher or subscriber>/2_BUILD_IMAGE LOCAL APP.sh```
 
-### Run the containers
-
-Run bash-scripts containing the Docker commands on this location:
-
-```/docker/<publisher or subscriber>/3_RUN_IMAGE LOCAL APP.sh```
-
-### Test the containers
+### Test your work
 
 #### Run FTL cluster
 
-- Prepare a FTL 5.4 cluster using configuration from /resources/FTL/realm.json. This configuration defines the necessary Application and Endpoints needed to run the containers.
+- Prepare a FTL cluster using configuration from /resources/FTL/realm.json. This configuration defines the necessary Application and Endpoints needed to run the containers.
 - Start your cluster (realm & persistence servers).
 
 ```sh
 #Realmserver
-cd /opt/tibco/ftl/current-version/bin
+cd /opt/tibco/ftl/[YOUR VERSION]/bin
 sudo ./tibrealmserver --http 0.0.0.0:8080
 sudo ./tibstore -n S1 -d data_dir -rs http://localhost:8080
 sudo ./tibstore -n S2 -d data_dir -rs http://localhost:8080
