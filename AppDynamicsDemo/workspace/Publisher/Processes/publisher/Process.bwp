@@ -10,6 +10,7 @@
     xmlns:ns2="http://tns.tibco.com/bw/palette/internal/activityerror+bw.ftl.publisher"
     xmlns:ns3="http://www.tibco.com/pe/WriteToLogActivitySchema"
     xmlns:ns4="http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591"
+    xmlns:ns5="http://tns.tibco.com/bw/ftl/publisher/fault"
     xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
@@ -220,23 +221,6 @@
                 </choice>
             </complexType>
         </schema>
-        <xs:schema attributeFormDefault="unqualified"
-            elementFormDefault="qualified"
-            targetNamespace="http://www.tibco.com/pe/WriteToLogActivitySchema"
-            xmlns:tns="http://www.tibco.com/pe/WriteToLogActivitySchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-            <xs:complexType name="LogParametersType">
-                <xs:sequence>
-                    <xs:element form="unqualified" minOccurs="0"
-                        name="msgCode" type="xs:string"/>
-                    <xs:element form="unqualified" minOccurs="0"
-                        name="loggerName" type="xs:string"/>
-                    <xs:element form="unqualified" minOccurs="0"
-                        name="logLevel" type="xs:string"/>
-                    <xs:element form="unqualified" name="message" type="xs:string"/>
-                </xs:sequence>
-            </xs:complexType>
-            <xs:element name="ActivityInput" type="tns:LogParametersType"/>
-        </xs:schema>
         <schema attributeFormDefault="unqualified"
             elementFormDefault="unqualified"
             targetNamespace="http://tns.tibco.com/bw/ftl/publisher/message+7cf7d2f3-f4e6-418d-b2de-60f84baa3591"
@@ -751,105 +735,6 @@
                             <element href="//0/@process/@activity"/>
                             <layoutConstraint height="253" width="518" xsi:type="notation:Bounds"/>
                         </children>
-                        <children type="4022">
-                            <children type="3022">
-                                <children type="4028">
-                                    <children type="3029">
-                                    <children type="4032">
-                                    <styles
-                                    fontName=".AppleSystemUIFont"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <element href="//0/@process/@activity/@faultHandlers/@catch.0"/>
-                                    <layoutConstraint
-                                    height="34" width="34"
-                                    xsi:type="notation:Bounds" y="68"/>
-                                    </children>
-                                    <styles xsi:type="notation:SortingStyle"/>
-                                    <styles xsi:type="notation:FilteringStyle"/>
-                                    </children>
-                                    <children type="3030">
-                                    <children type="4005">
-                                    <children type="3007">
-                                    <children type="4002 bw.generalactivities.log">
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".AppleSystemUIFont"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".AppleSystemUIFont"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".AppleSystemUIFont"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <children type="4017">
-                                    <styles
-                                    fontName=".AppleSystemUIFont"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <styles
-                                    fontName=".AppleSystemUIFont"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <styles
-                                    backgroundColor="16777215"
-                                    gradientEndColor="50431"
-                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <element href="//0/@process/@activity/@faultHandlers/@catch.0/@activity/@activity/@activities.0"/>
-                                    <layoutConstraint
-                                    height="40"
-                                    width="40"
-                                    x="117"
-                                    xsi:type="notation:Bounds" y="53"/>
-                                    </children>
-                                    <styles xsi:type="notation:DrawerStyle"/>
-                                    <styles xsi:type="notation:SortingStyle"/>
-                                    <styles xsi:type="notation:FilteringStyle"/>
-                                    </children>
-                                    <styles
-                                    fontName=".AppleSystemUIFont"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <styles
-                                    backgroundColor="16777215"
-                                    gradientEndColor="50431"
-                                    gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
-                                    <styles xsi:type="bwnotation:ResizingStyle"/>
-                                    <element href="//0/@process/@activity/@faultHandlers/@catch.0/@activity/@activity"/>
-                                    <layoutConstraint
-                                    height="168" width="417" xsi:type="notation:Bounds"/>
-                                    </children>
-                                    <styles xsi:type="notation:SortingStyle"/>
-                                    <styles xsi:type="notation:FilteringStyle"/>
-                                    </children>
-                                    <styles
-                                    fontName=".AppleSystemUIFont"
-                                    lineColor="0" xsi:type="notation:ShapeStyle"/>
-                                    <styles xsi:type="bwnotation:BackgroundStyle"/>
-                                    <styles xsi:type="bwnotation:ResizingStyle"/>
-                                    <element href="//0/@process/@activity/@faultHandlers/@catch.0"/>
-                                    <layoutConstraint xsi:type="notation:Bounds"/>
-                                </children>
-                                <styles xsi:type="notation:SortingStyle"/>
-                                <styles xsi:type="notation:FilteringStyle"/>
-                            </children>
-                            <styles fontName=".AppleSystemUIFont"
-                                lineColor="0" xsi:type="notation:ShapeStyle"/>
-                            <styles xsi:type="bwnotation:BackgroundStyle"/>
-                            <styles xsi:type="bwnotation:ResizingStyle"/>
-                            <element href="//0/@process/@activity/@faultHandlers"/>
-                            <layoutConstraint height="200" width="424" xsi:type="notation:Bounds"/>
-                        </children>
                         <styles xsi:type="notation:SortingStyle"/>
                         <styles xsi:type="notation:FilteringStyle"/>
                         <element href="//0/@process/@activity"/>
@@ -858,7 +743,7 @@
                     <styles xsi:type="bwnotation:BackgroundStyle"/>
                     <styles xsi:type="bwnotation:ResizingStyle"/>
                     <element href="//0/@process/@activity"/>
-                    <layoutConstraint height="489" width="518" x="1"
+                    <layoutConstraint height="321" width="518" x="1"
                         xsi:type="notation:Bounds" y="1"/>
                 </children>
                 <styles xsi:type="notation:SortingStyle"/>
@@ -867,7 +752,7 @@
             </children>
             <styles fontName=".AppleSystemUIFont" lineColor="0" xsi:type="notation:ShapeStyle"/>
             <element href="//0/@process"/>
-            <layoutConstraint height="541" width="860" xsi:type="notation:Bounds"/>
+            <layoutConstraint height="373" width="860" xsi:type="notation:Bounds"/>
         </children>
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
@@ -934,7 +819,6 @@
         <bpws:variable name="FTL_ENDPOINT" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             tibex:propertySource="FTL_ENDPOINT" type="xsd:string"/>
-        <bpws:variable element="ns3:ActivityInput" name="LogError-input" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -945,41 +829,6 @@
         <bpws:extension mustUnderstand="no" namespace="http://www.tibco.com/bpel/2007/extensions"/>
     </bpws:extensions>
     <bpws:scope name="scope">
-        <bpws:faultHandlers>
-            <bpws:catch tibex:xpdlId="50fe3112-cf7f-44ea-89b0-0682ad53c4ce">
-                <bpws:scope name="scope2">
-                    <bpws:flow name="flow2">
-                        <bpws:links/>
-                        <bpws:extensionActivity>
-                            <tibex:activityExtension
-                                inputVariable="LogError-input"
-                                name="LogError"
-                                tibex:xpdlId="47b6acb7-55e4-4054-8054-95bfaa5cb35d" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
-                                <tibex:inputBindings>
-                                    <tibex:inputBinding
-                                    expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns2=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;_error&quot;/>&lt;xsl:template name=&quot;LogError-input&quot; match=&quot;/&quot;>&lt;tns2:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;$_error&quot;/>&lt;/message>&lt;/tns2:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
-                                </tibex:inputBindings>
-                                <tibex:config>
-                                    <bwext:BWActivity
-                                    activityTypeID="bw.generalactivities.log"
-                                    version="6.0.0.001"
-                                    xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
-                                    xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
-                                    xmlns:generalactivities="http://ns.tibco.com/bw/palette/generalactivities" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                                    <activityConfig>
-                                    <properties name="config" xsi:type="activityconfig:EMFProperty">
-                                    <type href="http://ns.tibco.com/bw/palette/generalactivities#//Log"/>
-                                    <value role="Error" xsi:type="generalactivities:Log"/>
-                                    </properties>
-                                    </activityConfig>
-                                    </bwext:BWActivity>
-                                </tibex:config>
-                            </tibex:activityExtension>
-                        </bpws:extensionActivity>
-                    </bpws:flow>
-                </bpws:scope>
-            </bpws:catch>
-        </bpws:faultHandlers>
         <bpws:flow name="flow">
             <bpws:links/>
             <bpws:pick createInstance="yes" name="pick" tibex:xpdlId="1e830f10-4ab9-4163-83e6-114436dbf875">
