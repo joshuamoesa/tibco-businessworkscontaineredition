@@ -147,6 +147,36 @@ Run bash-scripts containing the Docker commands on this location:
 
 ```/docker/<publisher or subscriber>/3_RUN_IMAGE LOCAL APP.sh```
 
+#### Invoke BWCE containers
+
+Run bash-script which will perform a Curl call:
+
+```/docker/publisher/5_TEST APP.sh```
+
+This will return:
+
+```
+*   Trying ::1...
+* TCP_NODELAY set
+* Connected to localhost (::1) port 8081 (#0)
+> GET /person?name=joshua HTTP/1.1
+> Host: localhost:8081
+> User-Agent: curl/7.64.1
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Wed, 05 May 2021 13:30:26 GMT
+< Content-Type: text/plain;charset=utf-8
+< Access-Control-Allow-Origin: *
+< Access-Control-Allow-Methods: HEAD,POST,GET,OPTIONS,DELETE,PUT,PATCH
+< Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+< Content-Length: 47
+< Server: Jetty(9.4.18.v20190429)
+<
+* Connection #0 to host localhost left intact
+Successfully published message 'joshua' to FTL.* Closing connection 0
+```
+
 ## Create AppDynamics Agent Properties
 
 In AppDynamics UI go to Tiers & Nodes > Actions: Configure App Server Agent. Click on your node. Select Use *Custom Configuration*. Add a property by clicking the +-sign. Click on Save to commit the changes.
