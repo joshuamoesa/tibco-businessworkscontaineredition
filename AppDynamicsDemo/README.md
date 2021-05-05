@@ -115,6 +115,16 @@ Run bash-scripts containing the Docker commands on this location:
 
 ```/docker/<publisher or subscriber>/2_BUILD_IMAGE LOCAL APP.sh```
 
+Mind you that above script is meant to be invoked by below script:
+```
+#!/bin/sh
+export AD_APPLICATION_NAME=[APPDYNAMICS_APPLICATION_NAME]
+export AD_ACCOUNT_NAME=[APPDYNAMICS_ACCOUNT_NAME]
+export AD_ACCOUNT_ACCESSKEY=[APPLICATION_ACCOUNT_ACCESS_KEY]
+
+. 2_BUILD_IMAGE\ LOCAL\ APP.sh ${AD_APPLICATION_NAME} ${AD_ACCOUNT_NAME} ${AD_ACCOUNT_ACCESSKEY}%
+```
+
 ### Test your work
 
 #### Run FTL cluster
