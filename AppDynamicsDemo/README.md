@@ -125,6 +125,13 @@ export AD_ACCOUNT_ACCESSKEY=[APPLICATION_ACCOUNT_ACCESS_KEY]
 . 2_BUILD_IMAGE\ LOCAL\ APP.sh ${AD_APPLICATION_NAME} ${AD_ACCOUNT_NAME} ${AD_ACCOUNT_ACCESSKEY}%
 ```
 
+### Add singularityheader field to the FTL message format
+
+To make it work, the singularityheader field needs to be added to the FTL message format. The AppDynamics article [2] describes the situation where selected format config option is 'custom' and a local FTLMessageSchema.xsd needs to be modified.
+
+When format is 'Predefined' in BWCE code, add the header using the FTL UI:
+<img src="https://github.com/joshuamoesa/tibco-businessworkscontaineredition/blob/master/AppDynamicsDemo/resources/images/screenshot_tibcoftl_messageformat.jpg" width="500">
+
 ### Test your work
 
 #### Run FTL cluster
