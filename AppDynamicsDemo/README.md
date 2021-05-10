@@ -103,6 +103,17 @@ zip AppServerAgent-1.8-21.4.0.32403.zip ver21.4.0.32403/conf/controller-info.xml
 
 ### Create TIBCO BWCE base image
 
+- In Dockerfile, set the necessary BW_JAVA_OPTS variable arguments:
+
+```
+ENV BW_JAVA_OPTS="-javaagent:/tmp/agent/javaagent.jar -Dappdynamics.controller.hostName=postnldev.saas.appdynamics.com -Dappdynamics.controller.port=443 -Dappdynamics.agent.applicationName=${AD_APPLICATION_NAME} -Dappdynamics.agent.tierName=Publisher -Dappdynamics.agent.nodeName=localdevmachine_Publisher -Dappdynamics.agent.accountName=${AD_ACCOUNT_NAME} -Dappdynamics.agent.accountAccessKey=${AD_ACCOUNT_ACCESSKEY} -Dappdynamics.controller.ssl.enabled=true"
+```
+When you need to deal with auto-scaling scenario's and nodenames arent's static, instead of -Dappdynamics.agent.nodeName use the following arguments: 
+```
+-Dappdynamics.agent.reuse.nodeName=true
+-Dappdynamics.agent.reuse.nodeName.prefix=[YOUR PREFIX HERE]
+```
+
 - Create the TIBCO BWCE base Docker images for the publisher and the subscriber.
 
 Run bash-scripts containing the Docker commands on this location:
