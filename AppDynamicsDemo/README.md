@@ -195,7 +195,20 @@ This will return:
 Successfully published message 'joshua' to FTL.* Closing connection 0
 ```
 
-## Create AppDynamics Agent Properties
+## Configure AppDynamics UI
+
+### Add custom rule to show Subscriber outgoing traffic 
+
+AppDynamics not always shows all outgoing traffic. With 'Live Discovery' you can inspect the Agents live data and create a rule so that AD in the future will include that data in dashboards.
+
+<img src="https://github.com/joshuamoesa/tibco-businessworkscontaineredition/blob/master/AppDynamicsDemo/resources/images/screenshot_appdynamics_rule_config.png" width="500">
+
+Result:
+
+<img src="https://github.com/joshuamoesa/tibco-businessworkscontaineredition/blob/master/AppDynamicsDemo/resources/images/screenshot_appdynamics_rule.png" width="500">
+
+
+### Create AppDynamics Agent Properties
 
 In AppDynamics UI go to Tiers & Nodes > Actions: Configure App Server Agent. Click on your node. Select Use *Custom Configuration*. Add a property by clicking the +-sign. Click on Save to commit the changes.
 
