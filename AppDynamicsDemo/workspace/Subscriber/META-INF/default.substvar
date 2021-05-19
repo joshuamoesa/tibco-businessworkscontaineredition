@@ -8,6 +8,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>BW.DEPLOYMENTUNIT.NAME</name>
@@ -16,6 +17,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>BW.HOST.NAME</name>
@@ -24,6 +26,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>BW.DEPLOYMENTUNIT.VERSION</name>
@@ -32,6 +35,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>BW.MODULE.VERSION</name>
@@ -40,6 +44,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>BW.CLOUD.PORT</name>
@@ -48,6 +53,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>Integer</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>BW.MODULE.NAME</name>
@@ -56,14 +62,16 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>FTL_REALM_SERVER_URL</name>
-			<value>http://localhost:8080</value>
+			<value>http://localhost:8585</value>
 			<deploymentSettable>false</deploymentSettable>
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>FTL_APPLICATION_NAME</name>
@@ -72,6 +80,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>FTL_ENDPOINT</name>
@@ -80,6 +89,7 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 		<globalVariable>
 			<name>FTL_CLIENT_LABEL</name>
@@ -88,6 +98,16 @@
 			<serviceSettable>false</serviceSettable>
 			<type>String</type>
 			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
+		</globalVariable>
+		<globalVariable>
+			<name>FTL_FORMAT_NAME</name>
+			<value>PDMessage</value>
+			<deploymentSettable>false</deploymentSettable>
+			<serviceSettable>false</serviceSettable>
+			<type>String</type>
+			<isOverride>false</isOverride>
+			<useLookupValue>false</useLookupValue>
 		</globalVariable>
 	</globalVariables>
 </repository>

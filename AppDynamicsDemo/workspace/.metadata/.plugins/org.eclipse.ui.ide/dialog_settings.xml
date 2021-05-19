@@ -7,4 +7,8 @@
 		<item value="2675" key="DIALOG_X_ORIGIN"/>
 		<item value="-113" key="DIALOG_Y_ORIGIN"/>
 	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="-7" key="DIALOG_X_ORIGIN"/>
+		<item value="204" key="DIALOG_Y_ORIGIN"/>
+	</section>
 </section>

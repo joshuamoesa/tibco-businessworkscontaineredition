@@ -1,4 +1,0 @@
-/*C3*/SET SCHEMA PUBLIC
-DELETE FROM "policyagent" WHERE "agentname"='Domain=BWEclipseDomain,AppSpace=BWEclipseAppSpace,AppNode=BWEclipseAppNode'
-INSERT INTO "policyagent" VALUES('Domain=BWEclipseDomain,AppSpace=BWEclipseAppSpace,AppNode=BWEclipseAppNode','3.0','2020-12-22 11:17:43.057000','2020-12-22 11:21:18.989000',NULL)
-COMMIT

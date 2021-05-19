@@ -1,7 +1,17 @@
 {
-    "records": [],
-    "resources": [{
-        "location": "Service Descriptors/publisher.Process-Person.json",
-        "type": "generated"
-    }]
+    "records": [{
+        "name": "Cloud",
+        "items": [],
+        "url": "https://integration.cloud.tibco.com:443"
+    }],
+    "resources": [
+        {
+            "location": "Service Descriptors/publisher.Process-Person.json",
+            "type": "generated"
+        },
+        {
+            "location": "Service Descriptors/publisher.CopyOfProcess-Person.json",
+            "type": "generated"
+        }
+    ]
 }

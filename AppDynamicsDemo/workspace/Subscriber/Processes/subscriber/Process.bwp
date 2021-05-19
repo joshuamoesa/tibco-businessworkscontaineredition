@@ -8,6 +8,7 @@
     xmlns:ns0="http://tns.tibco.com/bw/ftl/subscriber/message"
     xmlns:ns1="http://www.tibco.com/pe/WriteToLogActivitySchema"
     xmlns:ns2="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922"
+    xmlns:ns3="http://tns.tibco.com/bw/ftl/subscriber/message+ba2fc7ac-7617-4a74-a108-74c3f89232bb"
     xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912"
     xmlns:sca-bpel="http://docs.oasis-open.org/ns/opencsa/sca-bpel/200801"
     xmlns:tibex="http://www.tibco.com/bpel/2007/extensions"
@@ -192,8 +193,8 @@
         </xs:schema>
         <schema attributeFormDefault="unqualified"
             elementFormDefault="unqualified"
-            targetNamespace="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922"
-            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922">
+            targetNamespace="http://tns.tibco.com/bw/ftl/subscriber/message+ba2fc7ac-7617-4a74-a108-74c3f89232bb"
+            xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://tns.tibco.com/bw/ftl/subscriber/message+ba2fc7ac-7617-4a74-a108-74c3f89232bb">
             <complexType name="MetadataType">
                 <sequence>
                     <!--element name="eFTLRequest" type="boolean" minOccurs="0"/-->
@@ -238,7 +239,7 @@
                 </complexType>
             </element>
             <element name="PredefinedMessage"
-                ns0:hash="EBD7BF77A7E551CAAB70C26DF53C09E6BE552C8810A1F7DDC8BE6F9D063C1F64" xmlns:ns0="http://tns.tibco.com/bw/ftl/subscriber/message+862e5868-d5b2-4a28-90ad-a48bf5aec922">
+                ns0:hash="AAF079D0EDDE60786468B824AA3B7D42D97F997C9A7CAFFB2288AE8BE79B3A36" xmlns:ns0="http://tns.tibco.com/bw/ftl/subscriber/message+ba2fc7ac-7617-4a74-a108-74c3f89232bb">
                 <complexType>
                     <sequence>
                         <element minOccurs="0" name="Metadata" type="tns:MetadataType"/>
@@ -296,7 +297,7 @@
                             <children type="3020">
                                 <children type="4005">
                                     <children type="3007">
-                                    <children type="4002 bw.ftl.subscriber">
+                                    <children type="4002 bw.generalactivities.log">
                                     <children type="4017">
                                     <styles
                                     fontName=".AppleSystemUIFont"
@@ -331,10 +332,10 @@
                                     <element href="//0/@process/@activity/@activity/@activities.0"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="-18"
-                                    xsi:type="notation:Bounds" y="148"/>
+                                    x="277"
+                                    xsi:type="notation:Bounds" y="149"/>
                                     </children>
-                                    <children type="4002 bw.generalactivities.log">
+                                    <children type="4002 bw.ftl.subscriber">
                                     <children type="4017">
                                     <styles
                                     fontName=".AppleSystemUIFont"
@@ -369,8 +370,8 @@
                                     <element href="//0/@process/@activity/@activity/@activities.1"/>
                                     <layoutConstraint
                                     height="40" width="40"
-                                    x="277"
-                                    xsi:type="notation:Bounds" y="149"/>
+                                    x="15"
+                                    xsi:type="notation:Bounds" y="150"/>
                                     </children>
                                     <styles xsi:type="notation:DrawerStyle"/>
                                     <styles xsi:type="notation:SortingStyle"/>
@@ -385,7 +386,7 @@
                                     gradientStartColor="16777215" xsi:type="bwnotation:BackgroundStyle"/>
                                     <styles xsi:type="bwnotation:ResizingStyle"/>
                                     <element href="//0/@process/@activity/@activity"/>
-                                    <layoutConstraint height="384"
+                                    <layoutConstraint height="407"
                                     width="515" xsi:type="notation:Bounds"/>
                                 </children>
                                 <styles xsi:type="notation:SortingStyle"/>
@@ -523,15 +524,15 @@
         <styles xsi:type="notation:DiagramStyle"/>
         <element href="//0"/>
         <edges
-            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"
-            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1" type="4006">
+            source="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"
+            target="//@children.0/@children.4/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0" type="4006">
             <children type="6002">
                 <layoutConstraint xsi:type="notation:Location" y="40"/>
             </children>
             <styles lineColor="0" xsi:type="notation:ConnectorStyle"/>
             <styles fontName=".AppleSystemUIFont" xsi:type="notation:FontStyle"/>
             <element href="//0/@process/@activity/@activity/@links/@children.0"/>
-            <bendpoints points="[25, 1, -270, 0]$[271, 0, -24, -1]" xsi:type="notation:RelativeBendpoints"/>
+            <bendpoints points="[25, -1, -237, 0]$[238, 0, -24, 1]" xsi:type="notation:RelativeBendpoints"/>
         </edges>
     </notation:Diagram>
     <tibex:NamespaceRegistry enabled="true">
@@ -542,8 +543,6 @@
     <bpws:variables>
         <bpws:variable element="ns:ProcessContext"
             name="_processContext" sca-bpel:internal="true"/>
-        <bpws:variable element="ns2:PredefinedMessage"
-            name="FTLSubscriber" sca-bpel:internal="true"/>
         <bpws:variable name="ftlProperty" sca-bpel:hotUpdate="false"
             sca-bpel:privateProperty="true" sca-bpel:property="yes"
             sca-bpel:sharedResourceType="{http://ns.tibco.com/bw/sharedresource/ftl}FTLRealmServerConnection" type="xsd:string">
@@ -558,6 +557,11 @@
         <bpws:variable name="FaultName" sca-bpel:internal="true" type="xsd:string"/>
         <bpws:variable element="ns:FaultDetail" name="FaultDetails" sca-bpel:internal="true"/>
         <bpws:variable element="ns1:ActivityInput" name="Log1-input" sca-bpel:internal="true"/>
+        <bpws:variable name="FTL_FORMAT_NAME" sca-bpel:hotUpdate="false"
+            sca-bpel:privateProperty="true" sca-bpel:property="yes"
+            tibex:propertySource="FTL_FORMAT_NAME" type="xsd:string"/>
+        <bpws:variable element="ns3:PredefinedMessage"
+            name="FTLSubscriber" sca-bpel:internal="true"/>
     </bpws:variables>
     <bpws:extensions>
         <bpws:extension mustUnderstand="no" namespace="http://www.eclipse.org/gmf/runtime/1.0.2/notation"/>
@@ -609,43 +613,6 @@
                 <bpws:link name="FTLSubscriberToLog" tibex:linkType="SUCCESS"/>
             </bpws:links>
             <bpws:extensionActivity>
-                <tibex:receiveEvent createInstance="yes"
-                    eventTimeout="60" name="FTLSubscriber"
-                    tibex:xpdlId="862e5868-d5b2-4a28-90ad-a48bf5aec922"
-                    variable="FTLSubscriber" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
-                    <bpws:sources>
-                        <bpws:source linkName="FTLSubscriberToLog"/>
-                    </bpws:sources>
-                    <tibex:eventSource>
-                        <bwext:BWActivity
-                            activityTypeID="bw.ftl.subscriber"
-                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
-                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
-                            xmlns:ftl="http://ns.tibco.com/bw/palette/ftl"
-                            xmlns:message_1608133490833="http://tns.tibco.com/bw/ftl/message/1608133490833" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-                            <attributeBindings
-                                bindingType="moduleProperty"
-                                eAttributeName="endpoint" processProperty="FTL_ENDPOINT"/>
-                            <activityConfig>
-                                <properties name="config" xsi:type="activityconfig:EMFProperty">
-                                    <type href="http://ns.tibco.com/bw/palette/ftl#//FTLSubscriber"/>
-                                    <value acknowledgementMode="auto"
-                                    format="predefined"
-                                    formatHashValue="EBD7BF77A7E551CAAB70C26DF53C09E6BE552C8810A1F7DDC8BE6F9D063C1F64"
-                                    formatName="EventMessage"
-                                    ftlRealmServerConnection="ftlProperty"
-                                    outputElementQName="message_1608133490833:FTLMessageType"
-                                    queueDispatcherThreads="1"
-                                    queueOverflowDiscardPolicy="none"
-                                    queueSize="-1"
-                                    threadPoolMinSize="50%" xsi:type="ftl:FTLSubscriber"/>
-                                </properties>
-                            </activityConfig>
-                        </bwext:BWActivity>
-                    </tibex:eventSource>
-                </tibex:receiveEvent>
-            </bpws:extensionActivity>
-            <bpws:extensionActivity>
                 <tibex:activityExtension inputVariable="Log-input"
                     name="Log"
                     tibex:xpdlId="6847cdaa-740e-49be-9299-ee28d1c03f28" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
@@ -654,7 +621,7 @@
                     </bpws:targets>
                     <tibex:inputBindings>
                         <tibex:inputBinding
-                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FTLSubscriber&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;(&amp;quot;Received FTL message containing a message: &amp;quot;, $FTLSubscriber/Message/MessageBody)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
+                            expression="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xa;&lt;xsl:stylesheet xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot; xmlns:tns=&quot;http://www.tibco.com/pe/WriteToLogActivitySchema&quot; version=&quot;2.0&quot;>&lt;xsl:param name=&quot;FTLSubscriber&quot;/>&lt;xsl:template name=&quot;Log-input&quot; match=&quot;/&quot;>&lt;tns:ActivityInput>&lt;message>&lt;xsl:value-of select=&quot;concat(&amp;quot;Received message: &amp;quot;, $FTLSubscriber/Message/MessageBody)&quot;/>&lt;/message>&lt;/tns:ActivityInput>&lt;/xsl:template>&lt;/xsl:stylesheet>" expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xslt1.0"/>
                     </tibex:inputBindings>
                     <tibex:config>
                         <bwext:BWActivity
@@ -673,6 +640,45 @@
                         </bwext:BWActivity>
                     </tibex:config>
                 </tibex:activityExtension>
+            </bpws:extensionActivity>
+            <bpws:extensionActivity>
+                <tibex:receiveEvent createInstance="yes"
+                    eventTimeout="60" name="FTLSubscriber"
+                    tibex:xpdlId="ba2fc7ac-7617-4a74-a108-74c3f89232bb"
+                    variable="FTLSubscriber" xmlns:tibex="http://www.tibco.com/bpel/2007/extensions">
+                    <bpws:sources>
+                        <bpws:source linkName="FTLSubscriberToLog"/>
+                    </bpws:sources>
+                    <tibex:eventSource>
+                        <bwext:BWActivity
+                            activityTypeID="bw.ftl.subscriber"
+                            xmlns:activityconfig="http://tns.tibco.com/bw/model/activityconfig"
+                            xmlns:bwext="http://tns.tibco.com/bw/model/core/bwext"
+                            xmlns:ftl="http://ns.tibco.com/bw/palette/ftl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                            <attributeBindings
+                                bindingType="moduleProperty"
+                                eAttributeName="endpoint" processProperty="FTL_ENDPOINT"/>
+                            <attributeBindings
+                                bindingType="moduleProperty"
+                                eAttributeName="formatName" processProperty="FTL_FORMAT_NAME"/>
+                            <activityConfig>
+                                <properties name="config" xsi:type="activityconfig:EMFProperty">
+                                    <type href="http://ns.tibco.com/bw/palette/ftl#//FTLSubscriber"/>
+                                    <value acknowledgementMode="auto"
+                                    endpoint="EP_ESB_PNP_Connect"
+                                    format="predefined"
+                                    formatHashValue="AAF079D0EDDE60786468B824AA3B7D42D97F997C9A7CAFFB2288AE8BE79B3A36"
+                                    formatName="EventMessage"
+                                    ftlRealmServerConnection="ftlProperty"
+                                    queueDispatcherThreads="1"
+                                    queueOverflowDiscardPolicy="none"
+                                    queueSize="-1"
+                                    threadPoolMinSize="50%" xsi:type="ftl:FTLSubscriber"/>
+                                </properties>
+                            </activityConfig>
+                        </bwext:BWActivity>
+                    </tibex:eventSource>
+                </tibex:receiveEvent>
             </bpws:extensionActivity>
         </bpws:flow>
     </bpws:scope>

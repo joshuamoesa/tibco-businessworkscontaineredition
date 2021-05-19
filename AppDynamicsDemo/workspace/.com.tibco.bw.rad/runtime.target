@@ -6,8 +6,8 @@
 
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/kafka/6.4//hotfix/runtime/plugins" type="Directory"/>
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/kafka/6.4//runtime/plugins" type="Directory"/>
-<location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/ftl/6.4//hotfix/runtime/plugins" type="Directory"/>
-<location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/ftl/6.4//runtime/plugins" type="Directory"/>
+<location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/ftl/6.5//hotfix/runtime/plugins" type="Directory"/>
+<location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/ftl/6.5//runtime/plugins" type="Directory"/>
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/awsm/6.4//hotfix/runtime/plugins" type="Directory"/>
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/awsm/6.4//runtime/plugins" type="Directory"/>
 <location path="/Users/joshuamoesa/Applications/tibco/bwce/bwce/palettes/salesforce/6.9//hotfix/runtime/plugins" type="Directory"/>

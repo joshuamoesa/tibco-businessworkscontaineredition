@@ -170,5 +170,5 @@ INSERT INTO "pehgovernedobjectkey" VALUES(2,'http://tns.tibco.com/governance/pol
 INSERT INTO "pehgovernedobjectkey" VALUES(3,'http://tns.tibco.com/governance/policy/host','cf','uri')
 INSERT INTO "pehgovernedobjectkey" VALUES(4,'http://tns.tibco.com/governance/policy/host','svcproxy','uri')
 COMMIT
-INSERT INTO "policyagent" VALUES('Domain=BWEclipseDomain,AppSpace=BWEclipseAppSpace,AppNode=BWEclipseAppNode','3.0','2020-12-16 15:36:49.634000','2020-12-16 15:36:49.634000',NULL)
+INSERT INTO "policyagent" VALUES('Domain=BWEclipseDomain,AppSpace=BWEclipseAppSpace,AppNode=BWEclipseAppNode','3.0','2021-05-18 13:42:07.285000','2021-05-18 13:42:07.285000',NULL)
 COMMIT
